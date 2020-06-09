@@ -1,0 +1,29 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: http://asdf-format.org/schemas/transform/redshift_scale_factor-2.0.0
+tag: http://asdf-format.org/schemas/transform/redshift_scale_factor-2.0.0
+title: >
+  One dimensional redshift scale factor model.
+
+description: >
+  One dimensional redshift scale factor model.
+
+examples:
+  -
+    - $$f(x)=x(1+2.5)$$
+    - |
+      !<http://asdf-format.org/schemas/transform/redshift_scale_factor-2.0.0> {z: 2.5}
+
+allOf:
+  - $ref: transform-2.0.0
+  - type: object
+    properties:
+      z:
+        anyOf:
+          - $ref: http://stsci.edu/schemas/asdf/unit/quantity-1.1.0
+          - type: number
+        description: Redshift value.
+
+    required: ['z']
+...

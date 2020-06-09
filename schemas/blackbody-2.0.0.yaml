@@ -1,0 +1,36 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: http://asdf-format.org/schemas/transform/blackbody-2.0.0
+tag: http://asdf-format.org/schemas/transform/blackbody-2.0.0
+title: >
+  Blackbody model.
+
+description: |
+  Blackbody model using the Planck function.
+
+  $$B_{\\nu}(T) = A \frac{2 h \nu^{3} / c^{2}}{exp(h \nu / k T) - 1}$$
+
+examples:
+  -
+    - $$B_{\\nu}(T) = 10.0 \frac{2 h \nu^{3} / c^{2}}{exp(h \nu / k *6000) - 1}$$
+    - |
+      !<http://asdf-format.org/schemas/transform/blackbody-2.0.0>
+        scale: 10.0
+        temperature: !<tag:stsci.edu:asdf/unit/quantity-1.1.0> {unit: !<tag:stsci.edu:asdf/unit/unit-1.0.0> K, value: 6000.0}
+
+allOf:
+  - $ref: transform-2.0.0
+  - type: object
+    properties:
+      scale:
+        anyOf:
+          - $ref: http://stsci.edu/schemas/asdf/unit/quantity-1.1.0
+          - type: number
+        description: Scale factor.
+      temperature:
+        $ref: http://stsci.edu/schemas/asdf/unit/quantity-1.1.0
+        description: Blackbody temperature. 
+
+    required: ['scale', 'temperature']
+...
