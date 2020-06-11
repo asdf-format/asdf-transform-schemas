@@ -1,0 +1,16 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: http://asdf-format.org/schemas/transform/polyconic-2.0.0
+tag: http://asdf-format.org/schemas/transform/polyconic-2.0.0
+title: |
+  Polyconic projection.
+
+description: |
+  Corresponds to the `PCO` projection in the FITS WCS standard.
+
+  Invertibility: All ASDF tools are required to provide the inverse of
+  this transform.
+
+$ref: pseudoconic-2.0.0
+...

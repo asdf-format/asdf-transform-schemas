@@ -1,0 +1,21 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: http://asdf-format.org/schemas/transform/shift-2.0.0
+tag: http://asdf-format.org/schemas/transform/shift-2.0.0
+title: >
+  A Shift opeartion.
+description: >
+  Apply an offset in one direction.
+
+allOf:
+  - $ref: transform-2.0.0
+  - type: object
+    properties:
+      offset:
+        anyOf:
+          - $ref: http://stsci.edu/schemas/asdf/unit/quantity-1.1.0
+          - type: number
+        description: Offset in one direction.
+    required: [offset]
+...
