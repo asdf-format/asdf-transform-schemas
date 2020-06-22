@@ -6,7 +6,7 @@ from setuptools import setup
 
 package_dir = {"": "src"}
 packages = ["asdf_transform_schemas"]
-for directory in ["schemas"]:
+for directory in ["schemas", "schema_collections"]:
     for walk_result in os.walk(directory):
         path = walk_result[0]
         package = ".".join(["asdf_transform_schemas"] + path.split(os.sep))
