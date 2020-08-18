@@ -1,0 +1,31 @@
+# Option 4: Inputs and outputs are lists instead of omap.  Does this better
+# express the fact that the inputs and outputs are ordered and not actually
+# keyed on name?
+
+!transform/tags/gaussian1d-1.0
+  name: Single model with units and bounds and constraints
+
+  parameters:
+    amplitude:
+      value: 1.0
+      unit: !core/tags/unit-1.0 m
+      bounds: [0.0, 2.0]
+
+    mean:
+      value: 2.0
+      unit: !core/tags/unit-1.0 s
+      fixed: true
+
+    stddev:
+      value: 3.0
+      unit: !core/tags/unit-1.0 s
+      bounds: [2.0, 4.0]
+
+  inputs:
+    - name: x
+      unit: !core/tags/unit-1.0 s
+      bounds: [-10, 10]
+
+  outputs:
+    - name: y
+      unit: !core/tags/unit-1.0 m
