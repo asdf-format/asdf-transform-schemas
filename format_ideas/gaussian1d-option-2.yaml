@@ -1,0 +1,56 @@
+# Option 2: Allow simplified representation for minimal models
+
+
+!transform/tags/gaussian1d-1.0
+  name: Minimal single model
+
+  parameters:
+    amplitude: 1.0
+    mean: 2.0
+    stddev: 3.0
+
+  inputs: [x]
+
+  outputs: [y]
+
+
+!transform/tags/gaussian1d-1.0
+  name: Single model with units and bounds and constraints
+
+  parameters:
+    amplitude: !transform/tags/parameter-1.0
+      value: 1.0
+      unit: !core/tags/unit-1.0 m
+      bounds: [0.0, 2.0]
+
+    mean: !transform/tags/parameter-1.0
+      value: 2.0
+      unit: !core/tags/unit-1.0 s
+      fixed: true
+
+    stddev: !transform/tags/parameter-1.0
+      value: 3.0
+      unit: !core/tags/unit-1.0 s
+      bounds: [2.0, 4.0]
+
+  inputs: !!omap
+    x: !transform/tags/input-1.0
+      unit: !core/tags/unit-1.0 s
+      bounds: [-10, 10]
+
+  outputs: !!omap
+    y: !transform/tags/output-1.0
+      unit: !core/tags/unit-1.0 m
+
+
+!transform/tags/gaussian1d-1.0
+  name: Minimal model set
+
+  parameters:
+    amplitude: [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+    mean: [2.0, 2.1, 2.2, 2.3, 2.4, 2.5]
+    stddev: [3.0, 3.1, 3.2, 3.3, 3.4, 3.5]
+
+  inputs: [x]
+
+  outputs: [y]
