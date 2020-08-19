@@ -1,0 +1,56 @@
+!transform/tags/gaussian1d-1.0
+  name: Minimal single transform
+
+  parameters:
+    amplitude: 1.0
+    mean: 2.0
+    stddev: 3.0
+
+  inputs: [x]
+
+  outputs: [y]
+
+
+!transform/tags/gaussian1d-1.0
+  name: Single transform with units and bounds and fixed parameters.
+
+  parameters:
+    amplitude:
+      value: 1.0
+      unit: !core/tags/unit-1.0 m
+      bounds: [0.0, 2.0]
+
+    mean:
+      value: 2.0
+      unit: !core/tags/unit-1.0 s
+      fixed: true
+
+    stddev:
+      value: 3.0
+      unit: !core/tags/unit-1.0 s
+      bounds: [2.0, 4.0]
+
+  inputs:
+    - name: x
+      unit: !core/tags/unit-1.0 s
+      bounds: [-10, 10]
+
+  outputs:
+    - name: y
+      unit: !core/tags/unit-1.0 m
+
+
+!transform/tags/gaussian1d-1.0
+  name: Minimal transform set
+
+  parameters:
+    amplitude: !core/tags/ndarray-1.0
+      [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+    mean: !core/tags/ndarray-1.0
+      [2.0, 2.1, 2.2, 2.3, 2.4, 2.5]
+    stddev: !core/tags/ndarray-1.0
+      [3.0, 3.1, 3.2, 3.3, 3.4, 3.5]
+
+  inputs: [x]
+
+  outputs: [y]

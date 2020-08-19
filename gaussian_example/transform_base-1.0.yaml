@@ -1,0 +1,135 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: asdf://asdf-format.org/extensions/transform/schemas/transform_base-1.0
+description: >
+  Common validations for transforms.
+
+definitions:
+  parameter_value:
+    description: >
+      Parameter value.  May be a single number, or in the case of a
+      transform set, a 1D ndarray of numbers.
+    anyOf:
+      - type: number
+      - tag: asdf://asdf-format.org/extensions/core/tags/ndarray-*
+        ndim: 1
+
+  parameter:
+    description: >
+      Object that encapsulates properties of a transform parameter.
+    properties:
+      value:
+        description: >
+          Parameter value.
+        $ref: '#/definitions/parameter_value'
+      unit:
+        description: >
+          Parameter unit.
+        default: >
+          Parameter has no unit.
+        tag: asdf://asdf-format.org/extensions/core/tags/unit-*
+      bounds:
+        description: >
+          Inclusive upper and lower bounds of the parameter value.
+          Used during fitting.
+        default: >
+          Parameter value is unbounded.
+        $ref: '#/definitions/bounds'
+      fixed:
+        description: >
+          If true, this parameter's value should be fixed when fitting.
+        default: >
+          Parameter is not fixed.
+        type: boolean
+    required: [value]
+    additionalProperties: false
+
+  bounds:
+    description: >
+      Inclusive upper and lower bounds for a parameter or
+      input value
+    type: array
+    items:
+      type: number
+    minItems: 2
+    maxItems: 2
+
+  input:
+    description: >
+      Object that encapsulates properties of a transform input.
+    properties:
+      name:
+        description: >
+          Input name.
+        type: string
+      unit:
+        description: >
+          Input unit.
+        default: >
+          Input has no unit.
+        tag: asdf://asdf-format.org/extensions/core/tags/unit-*
+      bounds:
+        description: >
+          Inclusive upper and lower bounds of the input value.
+        default: >
+          Input value is unbounded.
+        $ref: '#/definitions/bounds'
+    required: [name]
+    additionalProperties: false
+
+  output:
+    description: >
+      Object that encapsulates properties of a transform output.
+    properties:
+      name:
+        description: >
+          Output name.
+      unit:
+        description: >
+          Output unit.
+        default: >
+          Output has no unit.
+        tag: asdf://asdf-format.org/extensions/core/tags/unit-*
+
+properties:
+  parameters:
+    description: >
+      Map of parameter names to parameter values or parameter objects.
+    additionalProperties:
+      anyOf:
+        - $ref: '#/definitions/parameter_value'
+        - $ref: '#/definitions/parameter'
+
+  inputs:
+    description: >
+      Array of input names or input objects.
+    type: array
+    items:
+      anyOf:
+        - type: string
+        - $ref: '#/definitions/input'
+
+  outputs:
+    description: >
+      Array of output names or output objects.
+    type: array
+    items:
+      anyOf:
+        - type: string
+        - $ref: '#/definitions/output'
+
+  name:
+    description: >
+      Optional user-friendly name for the transform.
+    default: >
+      Transform has no name.
+    type: string
+
+  inverse:
+    description: >
+      Explicit inverse of this transform.
+    tag: asdf://asdf-format.org/extensions/transform/tags/**
+
+required: [parameters, inputs, outputs]
+additionalProperties: false

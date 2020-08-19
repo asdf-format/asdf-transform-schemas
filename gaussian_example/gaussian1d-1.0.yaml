@@ -1,0 +1,12 @@
+%YAML 1.1
+---
+$schema: http://stsci.edu/schemas/yaml-schema/draft-01
+id: asdf://asdf-format.org/extensions/transform/schemas/gaussian1d-1.0
+description: >
+  1D Gaussian function.
+
+allOf:
+  - $ref: transform_base-1.0
+  - properties:
+      parameters:
+        required: [amplitude, mean, stddev]
