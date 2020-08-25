@@ -1,16 +1,22 @@
 #!/usr/bin/env python
-import os
-
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
-package_dir = {"": "src"}
-packages = ["asdf_transform_schemas"]
-for directory in ["schemas"]:
-    for walk_result in os.walk(directory):
-        path = walk_result[0]
-        package = ".".join(["asdf_transform_schemas"] + path.split(os.sep))
-        package_dir[package] = path
-        packages.append(package)
+packages = find_packages(where="src")
+packages.append("asdf_transform_schemas.resources")
 
-setup(use_scm_version=True, packages=packages, package_dir=package_dir)
+package_dir = {
+    "": "src",
+    "asdf_transform_schemas.resources": "resources",
+}
+
+package_data = {
+    "asdf_transform_schemas.resources": ["*.yaml", "**/*.yaml", "**/**/*.yaml"],
+}
+
+setup(
+    use_scm_version=True,
+    packages=packages,
+    package_dir=package_dir,
+    package_data=package_data,
+)
