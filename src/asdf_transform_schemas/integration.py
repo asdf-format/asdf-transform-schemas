@@ -24,5 +24,9 @@ def get_resource_mappings():
         DirectoryResourceMapping(
             resources_root / "stsci.edu" / "schemas",
             "http://stsci.edu/schemas/asdf/transform",
-        )
+        ),
+        DirectoryResourceMapping(
+            resources_root / "stsci.edu" / "manifests",
+            "http://stsci.edu/asdf/extensions/transform/manifests",
+        ),
     ]
