@@ -1,3 +1,8 @@
+"""
+Script that creates initial transform manifests from the version_map
+files in the asdf-standard repo.  This file can be removed once
+the format of the manifest files has been finalized.
+"""
 import argparse
 
 import yaml
