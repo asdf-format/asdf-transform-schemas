@@ -42,7 +42,8 @@ allOf:
         description: Angle, in degrees.
       direction:
         description: |
-          Sequence of rotation axes: one of `zxz`, `zyz`, `yzy`, `yxy`, `xyx`, `xzx`
+          Sequence of rotation axes: one of 'zxz', 'xyx', 'yzy', 'zyz', 'xzx',
+          'yxy', 'xyz', 'yzx', 'zxy', 'xzy', 'zyx', 'yxz'
           or `native2celestial`, `celestial2native`.
 
           If `direction` is `native2celestial` or `celestial2native`,
@@ -50,7 +51,8 @@ allOf:
           the celestial system and `psi` is the longitude of the celestial pole in
           the native system.
 
-        enum: [zxz, zyz, yzy, yxy, xyx, xzx, native2celestial, celestial2native]
+        enum: ['zxz', 'xyx', 'yzy', 'zyz', 'xzx', 'yxy', 'xyz', 'yzx', 'zxy',
+               'xzy', 'zyx', 'yxz', native2celestial, celestial2native]
         default: native2celestial
 
     required: [phi, theta, psi, direction]
