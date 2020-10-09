@@ -31,7 +31,7 @@ allOf:
         enum: [pix2sky, sky2pix]
         default: pix2sky
 
-      sigma:
+      theta_A:
         anyOf:
           - $ref: "../unit/quantity-1.1.0"
           - type: number
@@ -39,7 +39,7 @@ allOf:
           $(\theta_1 + \theta_2) / 2$ where $\theta_1$ and $\theta_2$
           are the latitudes of the standard parallels, in degrees.
 
-      delta:
+      eta:
         anyOf:
           - $ref: "../unit/quantity-1.1.0"
           - type: number
