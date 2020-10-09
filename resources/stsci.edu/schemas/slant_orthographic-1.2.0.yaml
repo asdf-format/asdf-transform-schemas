@@ -24,5 +24,21 @@ description: |
   Invertibility: All ASDF tools are required to provide the inverse of
   this transform.
 
-$ref: "zenithal-1.2.0"
+allOf:
+  - $ref: "zenithal-1.2.0"
+  - type: object
+    properties:
+      xi:
+        anyOf:
+          - $ref: "../unit/quantity-1.1.0"
+          - type: number
+        description: Obliqueness parameter.
+        default: 0
+
+      eta:
+        anyOf:
+          - $ref: "../unit/quantity-1.1.0"
+          - type: number
+        description: Obliqueness parameter
+        default: 0
 ...
