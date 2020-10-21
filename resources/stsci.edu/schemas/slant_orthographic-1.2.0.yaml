@@ -32,13 +32,15 @@ allOf:
         anyOf:
           - $ref: "../unit/quantity-1.1.0"
           - type: number
-        description: Obliqueness parameter.
+        description: Obliqueness parameter, first equation of the slant
+                     orthographic projection.
         default: 0
 
       eta:
         anyOf:
           - $ref: "../unit/quantity-1.1.0"
           - type: number
-        description: Obliqueness parameter
+        description: Obliqueness parameter, second equation of the slant
+                     orthographic projection.
         default: 0
 ...

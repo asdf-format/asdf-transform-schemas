@@ -30,11 +30,13 @@ allOf:
     properties:
       xi:
         type: number
-        description: Obliqueness parameter.
+        description: Obliqueness parameter, first equation of the slant
+                     orthographic projection.
         default: 0
 
       eta:
         type: number
-        description: Obliqueness parameter.
+        description: Obliqueness parameter, second equation of the slant
+                     orthographic projection.
         default: 0
 ...
