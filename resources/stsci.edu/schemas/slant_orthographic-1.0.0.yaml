@@ -24,5 +24,19 @@ description: |
   Invertibility: All ASDF tools are required to provide the inverse of
   this transform.
 
-$ref: "zenithal-1.0.0"
+allOf:
+  - $ref: "zenithal-1.0.0"
+  - type: object
+    properties:
+      xi:
+        type: number
+        description: Obliqueness parameter, first equation of the slant
+                     orthographic projection.
+        default: 0
+
+      eta:
+        type: number
+        description: Obliqueness parameter, second equation of the slant
+                     orthographic projection.
+        default: 0
 ...

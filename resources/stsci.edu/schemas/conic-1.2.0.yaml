@@ -37,8 +37,8 @@ allOf:
           - type: number
         description: |
           $(\theta_1 + \theta_2) / 2$ where $\theta_1$ and $\theta_2$
-          are the latitudes of the standard parallels, in degrees.
-        default: 0
+          are the latitudes of the standard parallels, in degrees. This
+          parameter is also referred to as `theta_A`.
 
       delta:
         anyOf:
@@ -46,6 +46,7 @@ allOf:
           - type: number
         description: |
           $(\theta_1 - \theta_2) / 2$ where $\theta_1$ and $\theta_2$
-          are the latitudes of the standard parallels, in degrees.
+          are the latitudes of the standard parallels, in degrees. This
+          parameter is also referred to as `delta`.
         default: 0
 ...
