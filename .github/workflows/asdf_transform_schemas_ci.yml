@@ -32,7 +32,7 @@ jobs:
             toxenv: flake8
 
     steps:
-      - na:e: Checkout code
+      - name: Checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
