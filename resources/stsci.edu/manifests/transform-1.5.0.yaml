@@ -3,7 +3,8 @@ extension_uri: http://stsci.edu/asdf/extensions/transform-1.5.0
 title: Transform extension 1.5.0
 description: |-
   A set of tags for serializing data transforms.
-asdf_standard_requirement: 1.5.0
+asdf_standard_requirement:
+  gte: 1.5.0
 tags:
 - tag_uri: tag:stsci.edu:asdf/transform/add-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/add-1.2.0
