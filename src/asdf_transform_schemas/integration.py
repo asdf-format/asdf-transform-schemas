@@ -23,10 +23,10 @@ def get_resource_mappings():
     return [
         DirectoryResourceMapping(
             resources_root / "stsci.edu" / "schemas",
-            "http://stsci.edu/schemas/asdf/transform",
+            "http://stsci.edu/schemas/asdf/transform/",
         ),
         DirectoryResourceMapping(
-            resources_root / "stsci.edu" / "manifests",
-            "http://stsci.edu/asdf/extensions/transform/manifests",
+            resources_root / "asdf-format.org" / "manifests",
+            "asdf://asdf-format.org/transform/manifests/",
         ),
     ]
