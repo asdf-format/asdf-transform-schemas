@@ -47,7 +47,6 @@ manifest["title"] = f"Transform extension {asdf_standard_version}"
 manifest["description"] = MultilineString(
     "A set of tags for serializing data transforms."
 )
-manifest["asdf_standard_requirement"] = asdf_standard_version
 manifest["tags"] = []
 
 for tag_base, tag_version in version_map["tags"].items():
