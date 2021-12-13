@@ -261,11 +261,6 @@ tags:
     compound model with n fewer input arguments where n is
     the number of input values to be set (i.e., the number
     of keys in the dict).
-- tag_uri: tag:stsci.edu:asdf/transform/generic-1.2.0
-  schema_uri: http://stsci.edu/schemas/asdf/transform/generic-1.2.0
-  title: A generic transform.
-  description: |-
-    This is used **entirely** for bootstrapping purposes so one can create composite models including transforms that haven't yet been written.  **IT WILL NOT BE IN THE FINAL VERSION OF THE SPEC**.
 - tag_uri: tag:stsci.edu:asdf/transform/gnomonic-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/gnomonic-1.2.0
   title: The gnomonic projection.
