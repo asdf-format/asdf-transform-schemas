@@ -1,4 +1,4 @@
-0.2.0 (unreleased)
+0.2.0 (2021-12-13)
 
 - Remove generic-1.x.0 schemas and examples. [#30]
 
