@@ -1,0 +1,26 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/bounding_box-1.0.0"
+title: >
+  Bounding box for a model.
+description: >
+  This object contains the bounding box for a model, which defines
+  the domain of valid inputs to the model. For 1D models, it is a list
+  of length 2, containing the lower bound followed by the upper bound.
+  For models with 2 or more dimensions, it is a list of lists, where the
+  list is in reverse input order and each sub-list is a list of length
+  2 containing the lower bound followed by the upper bound.
+
+oneOf:
+  - type: array
+    prefixItems:
+      - type: number
+      - type: number
+  - type: array
+    items:
+      type: array
+      prefixItems:
+      - type: number
+      - type: number
+...
