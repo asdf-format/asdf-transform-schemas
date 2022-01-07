@@ -13,6 +13,27 @@ description: |
   list is in reverse input order and each sub-list is a list of length
   2 containing the lower bound followed by the upper bound.
 
+
+examples:
+  -
+    - A 1D bounding box
+    - |
+      !transform/bounding_box-1.0.0
+        [1.0, 2.0]
+  -
+    - A 2D bounding box
+    - |
+      !transform/bounding_box-1.0.0
+        - [1.0, 2.0]
+        - [3.0, 4.0]
+  -
+    - A 3D bounding box
+    - |
+      !transform/bounding_box-1.0.0
+        - [1.0, 2.0]
+        - [3.0, 4.0]
+        - [5.0, 6.0]
+
 definitions:
   interval:
     description: |
@@ -20,6 +41,8 @@ definitions:
       for a single model input variable.
 
     type: array
+    minItems: 2
+    maxItems: 2
     items:
       - type: number
       - type: number

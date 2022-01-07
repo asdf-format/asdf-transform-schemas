@@ -9,6 +9,68 @@ description: |
   This object contains a compound bounding box for a model, which defines
   a set of input-selectable bounding boxes.
 
+examples:
+  -
+    - A compound bounding box with one selector_args and 1D bounding_box
+    - |
+      !transform/compound_bounding_box-1.0.0
+        selector_args:
+          - argument: x
+            ignored: true
+        cbbox:
+          - key: [0]
+            bbox: [1.0, 2.0]
+          - key: [3]
+            bbox: [4.0, 5.0]
+  -
+    - A compound bounding box with one selector_args and 2D bounding_box
+    - |
+      !transform/compound_bounding_box-1.0.0
+        selector_args:
+          - argument: x
+            ignored: true
+        cbbox:
+          - key: [0]
+            bbox:
+              - [1.0, 2.0]
+              - [3.0, 4.0]
+          - key: [5]
+            bbox:
+              - [6.0, 7.0]
+              - [8.0, 9.0]
+  -
+    - A compound bounding box with two selector_args and 1D bounding_box
+    - |
+      !transform/compound_bounding_box-1.0.0
+        selector_args:
+          - argument: x
+            ignored: true
+          - argument: y
+            ignored: true
+        cbbox:
+          - key: [0, 1]
+            bbox: [2.0, 3.0]
+          - key: [4, 5]
+            bbox: [6.0, 7.0]
+  -
+    - A compound bounding box with two selector_args and 2D bounding_box
+    - |
+      !transform/compound_bounding_box-1.0.0
+        selector_args:
+          - argument: x
+            ignored: true
+          - argument: y
+            ignored: true
+        cbbox:
+          - key: [0, 1]
+            bbox:
+              - [2.0, 3.0]
+              - [4.0, 5.0]
+          - key: [6, 7]
+            bbox:
+              - [8.0, 9.0]
+              - [10.0, 11.0]
+
 definitions:
   selector_arg:
     description: |
@@ -34,7 +96,9 @@ definitions:
     description: |
       This object contains a single input-bounding_box entry for a
       compound_bounding_box. Note that each key must have the same
-      number of items as the selector arguments.
+      number of items as the selector arguments. Moreover, each value
+      for a key is the actual input value for the model, not the name
+      of the input
 
     type: object
     properties:
@@ -42,14 +106,16 @@ definitions:
         type: array
         minItems: 1
         items:
-          type: string
+          type: number
       bbox:
         $ref: bounding_box-1.0.0
     required: [key, bbox]
 
   cbbox:
     description: |
-      This object contains the map of the bounding boxes.
+      This object contains the map of the bounding boxes. Note that
+      each compound_bounding_box entry should have bboxes of the same
+      size
 
     type: array
     minItems: 1
