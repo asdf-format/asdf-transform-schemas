@@ -4,7 +4,8 @@ $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/bounding_box-1.0.0"
 title: >
   Bounding box for a model.
-description: >
+
+description: |
   This object contains the bounding box for a model, which defines
   the domain of valid inputs to the model. For 1D models, it is a list
   of length 2, containing the lower bound followed by the upper bound.
@@ -12,15 +13,20 @@ description: >
   list is in reverse input order and each sub-list is a list of length
   2 containing the lower bound followed by the upper bound.
 
+definitions:
+  interval:
+    description: |
+      This object contains the lower bound followed by the upper bound
+      for a single model input variable.
+
+    type: array
+    items:
+      - type: number
+      - type: number
+
 oneOf:
-  - type: array
-    prefixItems:
-      - type: number
-      - type: number
+  - $ref: #/definitions/interval
   - type: array
     items:
-      type: array
-      prefixItems:
-      - type: number
-      - type: number
+      $ref: #/definitions/interval
 ...
