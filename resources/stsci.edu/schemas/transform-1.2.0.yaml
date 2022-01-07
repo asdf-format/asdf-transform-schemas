@@ -9,22 +9,40 @@ description: >
   These objects are designed to be nested in arbitrary ways to build up
   transformation pipelines out of a number of low-level pieces.
 
-type: object
-properties:
-  name:
-    description: |
-      A user-friendly name for the transform, to give it extra
-      meaning.
-    type: string
 
-  inverse:
-    description: |
-      Explicitly sets the inverse transform of this transform.
+definitions:
+  base_transform:
+    type: object
+    properties:
+      name:
+        description: |
+          A user-friendly name for the transform, to give it extra
+          meaning.
+        type: string
 
-      If the transform has a direct analytic inverse, this
-      property is usually not necessary, as the ASDF-reading tool
-      can provide it automatically.
+      inverse:
+        description: |
+          Explicitly sets the inverse transform of this transform.
 
-    $ref: "transform-1.2.0"
-additionalProperties: true
+          If the transform has a direct analytic inverse, this
+          property is usually not necessary, as the ASDF-reading tool
+          can provide it automatically.
+
+        $ref: "transform-1.2.0"
+    additionalProperties: true
+
+allOf:
+  - $ref: "#/definitions/base_transform"
+  - oneOf:
+    - properties:
+        bounding_box:
+          $ref: bounding_box-1.0.0
+      required: [bounding_box]
+    - properties:
+        compound_bounding_box:
+          $ref: compound_bounding_box-1.0.0
+      required: [compound_bounding_box]
+    - properties:
+        bounding_box: {not: {}}
+        compound_bounding_box: {not: {}}
 ...
