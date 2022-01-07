@@ -25,9 +25,9 @@ definitions:
       - type: number
 
 oneOf:
-  - $ref: #/definitions/interval
+  - $ref: "#/definitions/interval"
   - type: array
     minItems: 2
     items:
-      $ref: #/definitions/interval
+      $ref: "#/definitions/interval"
 ...
