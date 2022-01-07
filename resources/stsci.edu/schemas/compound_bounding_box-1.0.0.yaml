@@ -1,0 +1,67 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/compound_bounding_box-1.0.0"
+title: >
+  Compound ounding box for a model.
+
+description: |
+  This object contains a compound bounding box for a model, which defines
+  a set of input-selectable bounding boxes.
+
+definitions:
+  selector_arg:
+    description: |
+      This object contains the description of a single selector argument.
+
+    type: object
+    properties:
+      argument:
+        type: string
+      ignored:
+        type: boolean
+    required: [argument, ignored]
+
+  selector_args:
+    description: |
+      This object contains a list of all the selector arguments.
+
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/definitions/selector_arg"
+  cbbox_entry:
+    description: |
+      This object contains a single input-bounding_box entry for a
+      compound_bounding_box. Note that each key must have the same
+      number of items as the selector arguments.
+
+    type: object
+    properties:
+      key:
+        type: array
+        minItems: 1
+        items:
+          type: string
+      bbox:
+        $ref: bounding_box-1.0.0
+    required: [key, bbox]
+
+  cbbox:
+    description: |
+      This object contains the map of the bounding boxes.
+
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/definitions/cbbox_entry"
+
+
+type: object
+properties:
+  selector_args:
+    $ref: "#/definitions/selector_args"
+  cbbox:
+    $ref: "#/definitions/cbbox"
+required: [selector_args, cbbox]
+...
