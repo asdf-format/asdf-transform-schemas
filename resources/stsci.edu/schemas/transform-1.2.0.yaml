@@ -9,6 +9,46 @@ description: >
   These objects are designed to be nested in arbitrary ways to build up
   transformation pipelines out of a number of low-level pieces.
 
+examples:
+  -
+    - A transform with no bounding_box or compound_bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+  -
+    - A transform with 1D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box: [1.0, 2.0]
+  -
+    - A transform with 2D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box:
+          - [1.0, 2.0]
+          - [3.0, 4.0]
+  -
+    - A transform with compound_bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        compound_bounding_box:
+          selector_args:
+            - argument: x
+              ignored: true
+            - argument: y
+              ignored: true
+          cbbox:
+            - key: [0, 1]
+              bbox:
+                - [2.0, 3.0]
+                - [4.0, 5.0]
+            - key: [6, 7]
+              bbox:
+                - [8.0, 9.0]
+                - [10.0, 11.0]
 
 definitions:
   base_transform:
