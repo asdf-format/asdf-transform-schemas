@@ -131,11 +131,11 @@ purposefully_failing = [
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0]
-    """
+    """,
 ]
 
 
-@pytest.mark.parametrize('yaml', purposefully_failing)
+@pytest.mark.parametrize("yaml", purposefully_failing)
 def test_failing_schema(yaml):
     buff = helpers.yaml_to_asdf(f"example: {yaml.strip()}")
     with pytest.raises(asdf.ValidationError, match=r"Failed validating *"):
