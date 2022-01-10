@@ -16,19 +16,36 @@ examples:
       !transform/transform-1.2.0
         name: test
   -
-    - A transform with 1D bounding_box
+    - A transform with old-style 1D bounding_box
     - |
       !transform/transform-1.2.0
         name: test
         bounding_box: [1.0, 2.0]
   -
-    - A transform with 2D bounding_box
+    - A transform with new-style 1D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box:
+          intervals:
+            x: [1.0, 2.0]
+  -
+    - A transform with old-style 2D bounding_box
     - |
       !transform/transform-1.2.0
         name: test
         bounding_box:
           - [1.0, 2.0]
           - [3.0, 4.0]
+  -
+    - A transform with new-style 2D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box:
+          intervals:
+            x: [1.0, 2.0]
+            y: [3.0, 4.0]
   -
     - A transform with compound_bounding_box
     - |
@@ -75,11 +92,11 @@ properties:
       Bounding box for model the transform
 
     oneOf:
-      - $ref: "interval-1.0.0"
+      - $ref: "bounding_box-1.0.0#definitions/interval"
       - type: array
         minItems: 2
         items:
-          $ref: "interval-1.0.0"
+          $ref: "bounding_box-1.0.0#definitions/interval"
       - $ref: "bounding_box-1.0.0"
       - $ref: "compound_bounding_box-1.0.0"
 additionalProperties: true

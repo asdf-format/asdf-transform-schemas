@@ -48,12 +48,21 @@ examples:
         ignore: [y, z]
         order: F
 
+definitions:
+  interval:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      - type: number
+      - type: number
+
 type: object
 properties:
   intervals:
     type: object
     additionalProperties:
-      $ref: "interval-1.0.0"
+      $ref: "#/definitions/interval"
     minProperties: 1
   ignore:
     type: array
