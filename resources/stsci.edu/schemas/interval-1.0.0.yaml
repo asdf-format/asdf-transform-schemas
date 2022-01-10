@@ -1,0 +1,25 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/interval-1.0.0"
+title: >
+  Bounding interval for a model input
+
+description: |
+  Defines the bounds on a single model input. This object contains the
+  lower bound followed by the upper bound for a single model input variable.
+
+examples:
+  -
+    - An interval
+    - |
+      !transform/interval-1.0.0
+        [0, 1]
+
+type: array
+minItems: 2
+maxItems: 2
+items:
+  - type: number
+  - type: number
+...

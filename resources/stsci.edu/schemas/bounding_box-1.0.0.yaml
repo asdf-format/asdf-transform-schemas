@@ -7,8 +7,13 @@ title: >
 
 description: |
   This object contains the bounding box for a model, which defines
-  the domain of valid inputs to the model. 
-
+  the domain of valid inputs to the model. The bounds for each input
+  is are listed as a map under the interval keyword as ordered pairs of
+  lower/upper bounds with key being the input name. If any model inputs
+  are to be ignored by the bounding box then they need to be listed under
+  the ignore keyword. Finally, the tuple representation's input ordering
+  can be listed under the order keyword, C for C-ordering, F for Fortran
+  ordering.
 
 examples:
   -
@@ -34,41 +39,27 @@ examples:
           y: [3.0, 4.0]
           z: [5.0, 6.0]
         order: F
+  -
+    - A 3D bounding box with ignored inputs
+    - |
+      !transform/bounding_box-1.0.0
+        intervals:
+          x: [1.0, 2.0]
+        ignore: [y, z]
+        order: F
 
-definitions:
-  interval:
-    description: |
-      This object contains the lower bound followed by the upper bound
-      for a single model input variable.
-
-    type: array
-    minItems: 2
-    maxItems: 2
-    items:
-      - type: number
-      - type: number
-
-  bbox:
+type: object
+properties:
+  intervals:
     type: object
-    properties:
-      intervals:
-        type: object
-        additionalProperties:
-          $ref: "#/definitions/interval"
-        minProperties: 1
-      ignore:
-        type: array
-        items:
-          type: string
-      order:
-        enum: ['C', 'F']
-    required: [intervals]
-
-oneOf:
-  - $ref: "#/definitions/interval"
-  - type: array
-    minItems: 2
+    additionalProperties:
+      $ref: "interval-1.0.0"
+    minProperties: 1
+  ignore:
+    type: array
     items:
-      $ref: "#/definitions/interval"
-  - $ref: "#/definitions/bbox"
+      type: string
+  order:
+    enum: ['C', 'F']
+required: [intervals]
 ...
