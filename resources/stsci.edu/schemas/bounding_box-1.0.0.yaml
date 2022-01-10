@@ -7,11 +7,7 @@ title: >
 
 description: |
   This object contains the bounding box for a model, which defines
-  the domain of valid inputs to the model. For 1D models, it is a list
-  of length 2, containing the lower bound followed by the upper bound.
-  For models with 2 or more dimensions, it is a list of lists, where the
-  list is in reverse input order and each sub-list is a list of length
-  2 containing the lower bound followed by the upper bound.
+  the domain of valid inputs to the model. 
 
 
 examples:
@@ -19,20 +15,25 @@ examples:
     - A 1D bounding box
     - |
       !transform/bounding_box-1.0.0
-        [1.0, 2.0]
+        intervals:
+          x: [1.0, 2.0]
   -
     - A 2D bounding box
     - |
       !transform/bounding_box-1.0.0
-        - [1.0, 2.0]
-        - [3.0, 4.0]
+        intervals:
+          x: [1.0, 2.0]
+          y: [3.0, 4.0]
+        order: C
   -
     - A 3D bounding box
     - |
       !transform/bounding_box-1.0.0
-        - [1.0, 2.0]
-        - [3.0, 4.0]
-        - [5.0, 6.0]
+        intervals:
+          x: [1.0, 2.0]
+          y: [3.0, 4.0]
+          z: [5.0, 6.0]
+        order: F
 
 definitions:
   interval:
@@ -47,10 +48,27 @@ definitions:
       - type: number
       - type: number
 
+  bbox:
+    type: object
+    properties:
+      intervals:
+        type: object
+        additionalProperties:
+          $ref: "#/definitions/interval"
+        minProperties: 1
+      ignore:
+        type: array
+        items:
+          type: string
+      order:
+        enum: ['C', 'F']
+    required: [intervals]
+
 oneOf:
   - $ref: "#/definitions/interval"
   - type: array
     minItems: 2
     items:
       $ref: "#/definitions/interval"
+  - $ref: "#/definitions/bbox"
 ...
