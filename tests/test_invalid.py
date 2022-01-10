@@ -4,7 +4,7 @@ from asdf.tests import helpers
 
 
 purposefully_failing = [
-    # bounding_box fails
+    # old-style bounding box fails
     # 1D string bound
     """!transform/shift-1.2.0
   offset: 1
@@ -20,7 +20,7 @@ purposefully_failing = [
   offset: 1
   bounding_box: [1.0, 2.0, 3.0]
     """,
-    # 2D only one interval
+    # 2D only one intervals
     """!transform/shift-1.2.0
   offset: 1
   bounding_box:
@@ -47,7 +47,50 @@ purposefully_failing = [
     - [1.0, 2.0]
     - [3.0, 4.0, 5.0]
     """,
-    # bounding_box fails
+    # new-style bounding box fails
+    # Missing intervals
+    """!transform/shift-1.2.0
+  offset: 1
+  bounding_box:
+    ignore: [x, y]
+    order: C
+    """,
+    # No intervals
+    """!transform/shift-1.2.0
+  offset: 1
+  bounding_box:
+    intervals: {}
+    ignore: [x, y]
+    order: C
+    """,
+    # Bad interval
+    """!transform/shift-1.2.0
+  offset: 1
+  bounding_box:
+    intervals:
+      x: [1.0, 2.0, 3.0]
+    ignore: [x, y]
+    order: C
+    """,
+    # Non-string ignore
+    """!transform/shift-1.2.0
+  offset: 1
+  bounding_box:
+    intervals:
+      x: [1.0, 2.0]
+    ignore: [x, y, 3]
+    order: C
+    """,
+    # Order is not F or C
+    """!transform/shift-1.2.0
+  offset: 1
+  bounding_box:
+    intervals:
+      x: [1.0, 2.0]
+    ignore: [x, y]
+    order: test
+    """,
+    # compound bounding box fails
     # missing ignore in selector
     """!transform/shift-1.2.0
   offset: 1
@@ -56,7 +99,9 @@ purposefully_failing = [
       - argument: x
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # missing argument in selector
     """!transform/shift-1.2.0
@@ -66,7 +111,9 @@ purposefully_failing = [
       - ignore: true
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # argument is not a string
     """!transform/shift-1.2.0
@@ -77,7 +124,9 @@ purposefully_failing = [
         ignore: true
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # ignore is not a boolean
     """!transform/shift-1.2.0
@@ -88,7 +137,9 @@ purposefully_failing = [
         ignore: test
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Nothing in selector_args array
     """!transform/shift-1.2.0
@@ -97,7 +148,9 @@ purposefully_failing = [
     selector_args: []
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Missing selector_args array
     """!transform/shift-1.2.0
@@ -105,7 +158,9 @@ purposefully_failing = [
   bounding_box:
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Nothing in key array
     """!transform/shift-1.2.0
@@ -116,7 +171,9 @@ purposefully_failing = [
         ignore: true
     cbbox:
       - key: []
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Non-numeric key entry
     """!transform/shift-1.2.0
@@ -127,7 +184,9 @@ purposefully_failing = [
         ignore: true
     cbbox:
       - key: [test]
-        bbox: [1.0, 2.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Missing key entry
     """!transform/shift-1.2.0
@@ -137,7 +196,9 @@ purposefully_failing = [
       - argument: x
         ignore: true
     cbbox:
-      - bbox: [1.0, 2.0]
+      - bbox:
+          intervals:
+            y: [1.0, 2.0]
     """,
     # Invalid bbox entry
     """!transform/shift-1.2.0
@@ -148,7 +209,9 @@ purposefully_failing = [
         ignore: true
     cbbox:
       - key: [0]
-        bbox: [1.0, 2.0, 3.0]
+        bbox:
+          intervals:
+            y: [1.0, 2.0, 3.0]
     """,
     # Missing bbox entry
     """!transform/shift-1.2.0
