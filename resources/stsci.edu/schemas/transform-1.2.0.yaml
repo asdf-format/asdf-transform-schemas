@@ -37,9 +37,9 @@ examples:
         compound_bounding_box:
           selector_args:
             - argument: x
-              ignored: true
+              ignore: true
             - argument: y
-              ignored: true
+              ignore: true
           cbbox:
             - key: [0, 1]
               bbox:

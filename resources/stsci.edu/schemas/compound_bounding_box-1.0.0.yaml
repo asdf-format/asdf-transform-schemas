@@ -16,7 +16,7 @@ examples:
       !transform/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
-            ignored: true
+            ignore: true
         cbbox:
           - key: [0]
             bbox: [1.0, 2.0]
@@ -28,7 +28,7 @@ examples:
       !transform/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
-            ignored: true
+            ignore: true
         cbbox:
           - key: [0]
             bbox:
@@ -44,9 +44,9 @@ examples:
       !transform/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
-            ignored: true
+            ignore: true
           - argument: y
-            ignored: true
+            ignore: true
         cbbox:
           - key: [0, 1]
             bbox: [2.0, 3.0]
@@ -58,9 +58,9 @@ examples:
       !transform/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
-            ignored: true
+            ignore: true
           - argument: y
-            ignored: true
+            ignore: true
         cbbox:
           - key: [0, 1]
             bbox:
@@ -80,9 +80,9 @@ definitions:
     properties:
       argument:
         type: string
-      ignored:
+      ignore:
         type: boolean
-    required: [argument, ignored]
+    required: [argument, ignore]
 
   selector_args:
     description: |

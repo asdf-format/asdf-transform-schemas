@@ -48,7 +48,7 @@ purposefully_failing = [
     - [3.0, 4.0, 5.0]
     """,
     # compound_bounding_box fails
-    # missing ignored in selector
+    # missing ignore in selector
     """!transform/shift-1.2.0
   offset: 1
   compound_bounding_box:
@@ -63,7 +63,7 @@ purposefully_failing = [
   offset: 1
   compound_bounding_box:
     selector_args:
-      - ignored: true
+      - ignore: true
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0]
@@ -74,18 +74,18 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: 5
-        ignored: true
+        ignore: true
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0]
     """,
-    # ignored is not a boolean
+    # ignore is not a boolean
     """!transform/shift-1.2.0
   offset: 1
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: test
+        ignore: test
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0]
@@ -113,7 +113,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - key: []
         bbox: [1.0, 2.0]
@@ -124,7 +124,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - key: [test]
         bbox: [1.0, 2.0]
@@ -135,7 +135,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - bbox: [1.0, 2.0]
     """,
@@ -145,7 +145,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0, 3.0]
@@ -156,7 +156,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - key: [0]
     """,
@@ -166,7 +166,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox: []
     """,
     # Missing cbbox entry
@@ -175,7 +175,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     """,
     # transform fails (both bounding_box and compound_bounding_box)
     """!transform/shift-1.2.0
@@ -186,7 +186,7 @@ purposefully_failing = [
   compound_bounding_box:
     selector_args:
       - argument: x
-        ignored: true
+        ignore: true
     cbbox:
       - key: [0]
         bbox: [1.0, 2.0]
