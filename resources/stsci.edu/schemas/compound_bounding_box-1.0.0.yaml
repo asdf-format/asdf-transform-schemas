@@ -18,11 +18,11 @@ examples:
           - argument: x
             ignore: true
         cbbox:
-          - key: [0]
+          - key: [0] # value of input x is 0 to select this box
             bbox:
               intervals:
                 y: [1.0, 2.0]
-          - key: [3]
+          - key: [3] # value of input x is 3 to select this box
             bbox:
               intervals:
                 y: [4.0, 5.0]
@@ -34,12 +34,12 @@ examples:
           - argument: x
             ignore: true
         cbbox:
-          - key: [0]
+          - key: [0] # value of input x is 0 to select this box
             bbox:
               intervals:
                 y: [1.0, 2.0]
                 z: [3.0, 4.0]
-          - key: [5]
+          - key: [5] # value of input x is 5 to select this box
             bbox:
               intervals:
                y: [6.0, 7.0]
@@ -54,11 +54,11 @@ examples:
           - argument: y
             ignore: true
         cbbox:
-          - key: [0, 1]
+          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
             bbox:
               intervals:
                 z: [2.0, 3.0]
-          - key: [4, 5]
+          - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
             bbox:
               intervals:
                 z: [6.0, 7.0]
@@ -72,12 +72,12 @@ examples:
           - argument: y
             ignore: true
         cbbox:
-          - key: [0, 1]
+          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
             bbox:
               intervals:
                 a: [2.0, 3.0]
                 b: [4.0, 5.0]
-          - key: [6, 7]
+          - key: [6, 7] # both value of input x is 6 and value of input y is 7 to select this box
             bbox:
               intervals:
                 a: [8.0, 9.0]
