@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/compound_bounding_box-1.0.0"
+id: "http://stsci.edu/schemas/asdf/transform/property/compound_bounding_box-1.0.0"
 title: >
   Compound bounding box for a model.
 
@@ -19,41 +19,41 @@ examples:
   -
     - A compound bounding box with one selector_args and 1D bounding_box
     - |
-      !transform/compound_bounding_box-1.0.0
+      !transform/property/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
             ignore: true
         cbbox:
           - key: [0] # value of input x is 0 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 y: [1.0, 2.0]
           - key: [3] # value of input x is 3 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 y: [4.0, 5.0]
   -
     - A compound bounding box with one selector_args and 2D bounding_box
     - |
-      !transform/compound_bounding_box-1.0.0
+      !transform/property/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
             ignore: true
         cbbox:
           - key: [0] # value of input x is 0 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 y: [1.0, 2.0]
                 z: [3.0, 4.0]
           - key: [5] # value of input x is 5 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                y: [6.0, 7.0]
                z: [8.0, 9.0]
   -
     - A compound bounding box with two selector_args and 1D bounding_box
     - |
-      !transform/compound_bounding_box-1.0.0
+      !transform/property/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
             ignore: true
@@ -61,17 +61,17 @@ examples:
             ignore: true
         cbbox:
           - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 z: [2.0, 3.0]
           - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 z: [6.0, 7.0]
   -
     - A compound bounding box with two selector_args and 2D bounding_box
     - |
-      !transform/compound_bounding_box-1.0.0
+      !transform/property/compound_bounding_box-1.0.0
         selector_args:
           - argument: x
             ignore: true
@@ -79,12 +79,12 @@ examples:
             ignore: true
         cbbox:
           - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 a: [2.0, 3.0]
                 b: [4.0, 5.0]
           - key: [6, 7] # both value of input x is 6 and value of input y is 7 to select this box
-            bbox: !transform/bounding_box-1.0.0
+            bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 a: [8.0, 9.0]
                 b: [10.0, 11.0]
@@ -126,7 +126,7 @@ definitions:
         items:
           type: number
       bbox:
-        tag: tag:stsci.edu:asdf/transform/bounding_box-1.0.0
+        tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.0.0
     required: [key, bbox]
 
   cbbox:

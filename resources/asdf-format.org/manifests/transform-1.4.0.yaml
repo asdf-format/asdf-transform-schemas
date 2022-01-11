@@ -713,8 +713,8 @@ tags:
 
     Invertibility: All ASDF tools are required to provide the inverse of
     this transform.
-- tag_uri: tag:stsci.edu:asdf/transform/bounding_box-1.0.0
-  schema_uri: http://stsci.edu/schemas/asdf/transform/bounding_box-1.0.0
+- tag_uri: tag:stsci.edu:asdf/transform/property/bounding_box-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/property/bounding_box-1.0.0
   title: Bounding box for a model.
   description: |-
     This object contains the bounding box for a model, which defines
@@ -725,8 +725,8 @@ tags:
     the ignore keyword. Finally, the tuple representation's input ordering
     can be listed under the order keyword, C for C-ordering, F for Fortran
     ordering.
-- tag_uri: tag:stsci.edu:asdf/transform/compound_bounding_box-1.0.0
-  schema_uri: http://stsci.edu/schemas/asdf/transform/compound_bounding_box-1.0.0
+- tag_uri: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/property/compound_bounding_box-1.0.0
   title: Compound bounding box for a model.
   description: |-
     This object contains a compound bounding box for a model, which defines

@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/bounding_box-1.0.0"
+id: "http://stsci.edu/schemas/asdf/transform/property/bounding_box-1.0.0"
 title: >
   Bounding box for a model.
 
@@ -19,13 +19,13 @@ examples:
   -
     - A 1D bounding box
     - |
-      !transform/bounding_box-1.0.0
+      !transform/property/bounding_box-1.0.0
         intervals:
           x: [1.0, 2.0]
   -
     - A 2D bounding box
     - |
-      !transform/bounding_box-1.0.0
+      !transform/property/bounding_box-1.0.0
         intervals:
           x: [1.0, 2.0]
           y: [3.0, 4.0]
@@ -33,7 +33,7 @@ examples:
   -
     - A 3D bounding box
     - |
-      !transform/bounding_box-1.0.0
+      !transform/property/bounding_box-1.0.0
         intervals:
           x: [1.0, 2.0]
           y: [3.0, 4.0]
@@ -42,7 +42,7 @@ examples:
   -
     - A 3D bounding box with ignored inputs
     - |
-      !transform/bounding_box-1.0.0
+      !transform/property/bounding_box-1.0.0
         intervals:
           x: [1.0, 2.0]
         ignore: [y, z]
