@@ -7,7 +7,13 @@ title: >
 
 description: |
   This object contains a compound bounding box for a model, which defines
-  a set of input-selectable bounding boxes.
+  a set of input-selectable bounding boxes. It consists of a list of selector_args
+  together with a list of input-key bounding box pairs. The selector
+  args are an ordered list of model inputs with an indication of whether
+  or not to ignore the input in the bounding box selected. The key for
+  each bounding box entry corresponds to the values of the selector args
+  (in the order listed) which will select the accompanying bounding box.
+
 
 examples:
   -
@@ -19,11 +25,11 @@ examples:
             ignore: true
         cbbox:
           - key: [0] # value of input x is 0 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 y: [1.0, 2.0]
           - key: [3] # value of input x is 3 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 y: [4.0, 5.0]
   -
@@ -35,12 +41,12 @@ examples:
             ignore: true
         cbbox:
           - key: [0] # value of input x is 0 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 y: [1.0, 2.0]
                 z: [3.0, 4.0]
           - key: [5] # value of input x is 5 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                y: [6.0, 7.0]
                z: [8.0, 9.0]
@@ -55,11 +61,11 @@ examples:
             ignore: true
         cbbox:
           - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 z: [2.0, 3.0]
           - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 z: [6.0, 7.0]
   -
@@ -73,12 +79,12 @@ examples:
             ignore: true
         cbbox:
           - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 a: [2.0, 3.0]
                 b: [4.0, 5.0]
           - key: [6, 7] # both value of input x is 6 and value of input y is 7 to select this box
-            bbox:
+            bbox: !transform/bounding_box-1.0.0
               intervals:
                 a: [8.0, 9.0]
                 b: [10.0, 11.0]
@@ -120,7 +126,7 @@ definitions:
         items:
           type: number
       bbox:
-        $ref: bounding_box-1.0.0
+        tag: tag:stsci.edu:asdf/transform/bounding_box-1.0.0
     required: [key, bbox]
 
   cbbox:

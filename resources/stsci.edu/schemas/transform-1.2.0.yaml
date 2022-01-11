@@ -26,7 +26,7 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
-        bounding_box:
+        bounding_box: !transform/bounding_box-1.0.0
           intervals:
             x: [1.0, 2.0]
   -
@@ -42,7 +42,7 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
-        bounding_box:
+        bounding_box: !transform/bounding_box-1.0.0
           intervals:
             x: [1.0, 2.0]
             y: [3.0, 4.0]
@@ -51,7 +51,7 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
-        bounding_box:
+        bounding_box: !transform/compound_bounding_box-1.0.0
           selector_args:
             - argument: x
               ignore: true
@@ -59,12 +59,12 @@ examples:
               ignore: true
           cbbox:
             - key: [0, 1]
-              bbox:
+              bbox: !transform/bounding_box-1.0.0
                 intervals:
                   a: [2.0, 3.0]
                   b: [4.0, 5.0]
             - key: [6, 7]
-              bbox:
+              bbox: !transform/bounding_box-1.0.0
                 intervals:
                   a: [8.0, 9.0]
                   b: [10.0, 11.0]
@@ -98,6 +98,6 @@ properties:
         items:
           $ref: "bounding_box-1.0.0#definitions/interval"
       - tag: tag:stsci.edu:asdf/transform/bounding_box-1.0.0
-      - $ref: "compound_bounding_box-1.0.0"
+      - tag: tag:stsci.edu:asdf/transform/compound_bounding_box-1.0.0
 additionalProperties: true
 ...
