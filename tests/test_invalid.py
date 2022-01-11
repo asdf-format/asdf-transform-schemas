@@ -49,196 +49,160 @@ purposefully_failing = [
     """,
     # new-style bounding box fails
     # Missing intervals
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    ignore: [x, y]
-    order: C
+    """!transform/property/bounding_box-1.0.0
+  ignore: [x, y]
+  order: C
     """,
     # No intervals
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    intervals: {}
-    ignore: [x, y]
-    order: C
+    """!transform/property/bounding_box-1.0.0
+  intervals: {}
+  ignore: [x, y]
+  order: C
     """,
     # Bad interval
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    intervals:
-      x: [1.0, 2.0, 3.0]
-    ignore: [x, y]
-    order: C
+    """!transform/property/bounding_box-1.0.0
+  intervals:
+    x: [1.0, 2.0, 3.0]
+  ignore: [x, y]
+  order: C
     """,
     # Non-string ignore
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    intervals:
-      x: [1.0, 2.0]
-    ignore: [x, y, 3]
-    order: C
+    """!transform/property/bounding_box-1.0.0
+  intervals:
+    x: [1.0, 2.0]
+  ignore: [x, y, 3]
+  order: C
     """,
     # Order is not F or C
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    intervals:
-      x: [1.0, 2.0]
-    ignore: [x, y]
-    order: test
+    """!transform/property/bounding_box-1.0.0
+  intervals:
+    x: [1.0, 2.0]
+  ignore: [x, y]
+  order: test
     """,
     # compound bounding box fails
     # missing ignore in selector
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # missing argument in selector
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - ignore: true
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - ignore: true
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # argument is not a string
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: 5
-        ignore: true
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: 5
+      ignore: true
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # ignore is not a boolean
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: test
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: test
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Nothing in selector_args array
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args: []
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args: []
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Missing selector_args array
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Nothing in key array
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox:
-      - key: []
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox:
+    - key: []
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Non-numeric key entry
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox:
-      - key: [test]
-        bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox:
+    - key: [test]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Missing key entry
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox:
-      - bbox:
-          intervals:
-            y: [1.0, 2.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox:
+    - bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0]
     """,
     # Invalid bbox entry
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox:
-      - key: [0]
-        bbox:
-          intervals:
-            y: [1.0, 2.0, 3.0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox:
+    - key: [0]
+      bbox: !transform/property/bounding_box-1.0.0
+        intervals:
+          y: [1.0, 2.0, 3.0]
     """,
     # Missing bbox entry
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox:
-      - key: [0]
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox:
+    - key: [0]
     """,
     # Empty cbbox array
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
-    cbbox: []
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
+  cbbox: []
     """,
     # Missing cbbox entry
-    """!transform/shift-1.2.0
-  offset: 1
-  bounding_box:
-    selector_args:
-      - argument: x
-        ignore: true
+    """!transform/property/compound_bounding_box-1.0.0
+  selector_args:
+    - argument: x
+      ignore: true
     """,
 ]
 
