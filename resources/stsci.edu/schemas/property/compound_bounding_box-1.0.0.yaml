@@ -50,6 +50,7 @@ examples:
               intervals:
                y: [6.0, 7.0]
                z: [8.0, 9.0]
+        order: 'C'
   -
     - A compound bounding box with two selector_args and 1D bounding_box
     - |
@@ -68,6 +69,23 @@ examples:
             bbox: !transform/property/bounding_box-1.0.0
               intervals:
                 z: [6.0, 7.0]
+  -
+    - A compound bounding box with one selector_args and 1D bounding_box
+    - |
+      !transform/property/compound_bounding_box-1.0.0
+        selector_args:
+          - argument: x
+            ignore: true
+        cbbox:
+          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
+            bbox: !transform/property/bounding_box-1.0.0
+              intervals:
+                z: [2.0, 3.0]
+          - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
+            bbox: !transform/property/bounding_box-1.0.0
+              intervals:
+                z: [6.0, 7.0]
+        ignore: [y]
   -
     - A compound bounding box with two selector_args and 2D bounding_box
     - |
@@ -88,6 +106,7 @@ examples:
               intervals:
                 a: [8.0, 9.0]
                 b: [10.0, 11.0]
+        order: 'F'
 
 definitions:
   selector_arg:
@@ -147,5 +166,9 @@ properties:
     $ref: "#/definitions/selector_args"
   cbbox:
     $ref: "#/definitions/cbbox"
+  ignore:
+    $ref: "bounding_box-1.0.0#/definitions/ignore"
+  order:
+    $ref: "bounding_box-1.0.0#/definitions/order"
 required: [selector_args, cbbox]
 ...

@@ -84,6 +84,14 @@ purposefully_failing = [
       ignore: [x, y, 3]
       order: C
     """,
+    # Non-list ignore
+    """
+    !transform/property/bounding_box-1.0.0
+      intervals:
+        x: [1.0, 2.0]
+      ignore: y
+      order: C
+    """,
     # Order is not F or C
     """
     !transform/property/bounding_box-1.0.0
@@ -228,6 +236,46 @@ purposefully_failing = [
       selector_args:
         - argument: x
           ignore: true
+    """,
+    # Non-string ignore
+    """
+    !transform/property/compound_bounding_box-1.0.0
+      selector_args:
+        - argument: x
+          ignore: true
+      cbbox:
+        - key: [0]
+          bbox: !transform/property/bounding_box-1.0.0
+            intervals:
+              y: [1.0, 2.0]
+      ignore: [z, 3]
+    """,
+    # Non-list ignore
+    """
+    !transform/property/compound_bounding_box-1.0.0
+      selector_args:
+        - argument: x
+          ignore: true
+      cbbox:
+        - key: [0]
+          bbox: !transform/property/bounding_box-1.0.0
+            intervals:
+              y: [1.0, 2.0]
+      ignore: z
+    """,
+    # Order is not F or C
+    """
+    !transform/property/compound_bounding_box-1.0.0
+      selector_args:
+        - argument: x
+          ignore: true
+      cbbox:
+        - key: [0]
+          bbox: !transform/property/bounding_box-1.0.0
+            intervals:
+              y: [1.0, 2.0]
+      ignore: [z]
+      order: test
     """,
 ]
 

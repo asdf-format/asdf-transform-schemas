@@ -56,6 +56,12 @@ definitions:
     items:
       - type: number
       - type: number
+  ignore:
+    type: array
+    items:
+      type: string
+  order:
+    enum: ['C', 'F']
 
 type: object
 properties:
@@ -65,10 +71,8 @@ properties:
       $ref: "#/definitions/interval"
     minProperties: 1
   ignore:
-    type: array
-    items:
-      type: string
+    $ref: "#/definitions/ignore"
   order:
-    enum: ['C', 'F']
+    $ref: "#/definitions/order"
 required: [intervals]
 ...
