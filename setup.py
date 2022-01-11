@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 from setuptools import setup, find_packages
 
 
@@ -10,8 +11,18 @@ package_dir = {
     "asdf_transform_schemas.resources": "resources",
 }
 
+
+def package_yaml_files(directory):
+    paths = []
+    for path, _, filenames in os.walk(directory):
+        for filename in filenames:
+            if filename.endswith(".yaml"):
+                paths.append(os.path.join("..", path, filename))
+    return paths
+
+
 package_data = {
-    "asdf_transform_schemas.resources": ["*.yaml", "**/*.yaml", "**/**/*.yaml", "**/**/**/*.yaml"],
+    "asdf_transform_schemas.resources": package_yaml_files("resources"),
 }
 
 setup(
