@@ -49,13 +49,18 @@ examples:
         order: F
 
 definitions:
+  bound:
+    anyOf:
+      - tag: tag:stsci.edu:asdf/unit/quantity-1.1.0
+      - type: number
+
   interval:
     type: array
     minItems: 2
     maxItems: 2
     items:
-      - type: number
-      - type: number
+      - $ref: "#/definitions/bound"
+      - $ref: "#/definitions/bound"
   ignore:
     type: array
     items:
