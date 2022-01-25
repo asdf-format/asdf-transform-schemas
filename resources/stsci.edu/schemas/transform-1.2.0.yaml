@@ -9,6 +9,66 @@ description: >
   These objects are designed to be nested in arbitrary ways to build up
   transformation pipelines out of a number of low-level pieces.
 
+examples:
+  -
+    - A transform with no bounding_box or compound_bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+  -
+    - A transform with old-style 1D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box: [1.0, 2.0]
+  -
+    - A transform with new-style 1D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x: [1.0, 2.0]
+  -
+    - A transform with old-style 2D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box:
+          - [1.0, 2.0]
+          - [3.0, 4.0]
+  -
+    - A transform with new-style 2D bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x: [1.0, 2.0]
+            y: [3.0, 4.0]
+  -
+    - A transform with compound_bounding_box
+    - |
+      !transform/transform-1.2.0
+        name: test
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x
+              ignore: true
+            - argument: y
+              ignore: true
+          cbbox:
+            - key: [0, 1]
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  a: [2.0, 3.0]
+                  b: [4.0, 5.0]
+            - key: [6, 7]
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  a: [8.0, 9.0]
+                  b: [10.0, 11.0]
+
 type: object
 properties:
   name:
@@ -26,5 +86,18 @@ properties:
       can provide it automatically.
 
     $ref: "transform-1.2.0"
+
+  bounding_box:
+    description: |
+      Bounding box for model the transform
+
+    oneOf:
+      - $ref: "property/bounding_box-1.0.0#definitions/interval"
+      - type: array
+        minItems: 2
+        items:
+          $ref: "property/bounding_box-1.0.0#definitions/interval"
+      - tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.0.0
+      - tag: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.0.0
 additionalProperties: true
 ...
