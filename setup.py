@@ -11,7 +11,7 @@ package_dir = {
 }
 
 package_data = {
-    "asdf_transform_schemas.resources": ["*.yaml", "**/*.yaml", "**/**/*.yaml"],
+    "asdf_transform_schemas.resources": ["*.yaml", "**/*.yaml", "**/**/*.yaml", "**/**/**/*.yaml"],
 }
 
 setup(

@@ -24,6 +24,7 @@ def get_resource_mappings():
         DirectoryResourceMapping(
             resources_root / "stsci.edu" / "schemas",
             "http://stsci.edu/schemas/asdf/transform/",
+            recursive=True,
         ),
         DirectoryResourceMapping(
             resources_root / "asdf-format.org" / "manifests",
