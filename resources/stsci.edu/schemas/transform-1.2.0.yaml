@@ -17,6 +17,12 @@ examples:
         name: test
         inputs: ['x', 'y']
         outputs: ['z']
+        fixed:
+          a: True
+          b: False
+        bounds:
+          c: [-1, 2]
+          d: [-3, 4]
   -
     - A transform with old-style 1D bounding_box
     - |
@@ -125,5 +131,20 @@ properties:
           $ref: "property/bounding_box-1.0.0#definitions/interval"
       - tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.0.0
       - tag: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.0.0
+
+  fixed:
+    description: |
+      The parameters which are fixed when fitting the transform to data.
+    type: object
+    additionalProperties:
+      type: boolean
+
+  bounds:
+    description: |
+      The parameters which are bounded when fitting the transform to data.
+    type:
+      object
+    additionalProperties:
+      $ref: "property/bounding_box-1.0.0#definitions/interval"
 additionalProperties: true
 ...
