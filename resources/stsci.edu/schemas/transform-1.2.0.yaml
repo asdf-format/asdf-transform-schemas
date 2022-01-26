@@ -15,17 +15,23 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x', 'y']
+        outputs: ['z']
   -
     - A transform with old-style 1D bounding_box
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x']
+        outputs: ['y']
         bounding_box: [1.0, 2.0]
   -
     - A transform with new-style 1D bounding_box
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x']
+        outputs: ['y']
         bounding_box: !transform/property/bounding_box-1.0.0
           intervals:
             x: [1.0, 2.0]
@@ -34,6 +40,8 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x', 'y']
+        outputs: ['z']
         bounding_box:
           - [1.0, 2.0]
           - [3.0, 4.0]
@@ -42,6 +50,8 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x', 'y']
+        outputs: ['z']
         bounding_box: !transform/property/bounding_box-1.0.0
           intervals:
             x: [1.0, 2.0]
@@ -51,6 +61,8 @@ examples:
     - |
       !transform/transform-1.2.0
         name: test
+        inputs: ['x', 'y', 'a', 'b']
+        outputs: ['z']
         bounding_box: !transform/property/compound_bounding_box-1.0.0
           selector_args:
             - argument: x
@@ -86,6 +98,20 @@ properties:
       can provide it automatically.
 
     $ref: "transform-1.2.0"
+
+  inputs:
+    description: |
+      The names of the model's evaluation input variables.
+    type: array
+    items:
+      type: string
+
+  outputs:
+    description: |
+      The names of the model's evaluation output variables.
+    type: array
+    items:
+      type: string
 
   bounding_box:
     description: |

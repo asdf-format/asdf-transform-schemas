@@ -1,6 +1,7 @@
 0.2.1 (unreleased)
 
 - Add schemas to properly support bounding_box and compound_bounding_box. [#31]
+- Add inputs and outputs to base transform schema to properly document them. [#33]
 
 0.2.0 (2021-12-13)
 ------------------
