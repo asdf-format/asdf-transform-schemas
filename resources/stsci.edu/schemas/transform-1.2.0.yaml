@@ -22,7 +22,7 @@ examples:
           b: False
         bounds:
           c: [-1, 2]
-          d: [-3, 4]
+          d: [-3, null]
   -
     - A transform with old-style 1D bounding_box
     - |
@@ -87,6 +87,12 @@ examples:
                   a: [8.0, 9.0]
                   b: [10.0, 11.0]
 
+definitions:
+  bound:
+    anyOf:
+      - type: number
+      - type: "null"
+
 type: object
 properties:
   name:
@@ -145,6 +151,11 @@ properties:
     type:
       object
     additionalProperties:
-      $ref: "property/bounding_box-1.0.0#definitions/interval"
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        - $ref: "#/definitions/bound"
+        - $ref: "#/definitions/bound"
 additionalProperties: true
 ...
