@@ -157,5 +157,12 @@ properties:
       items:
         - $ref: "#/definitions/bound"
         - $ref: "#/definitions/bound"
+
+  input_units_equivalencies:
+    description: |
+      The units that are accepted for inputs to be converted into.
+    type: object
+    additionalProperties:
+      tag: tag:astropy.org:astropy/units/equivalency-1.0.0
 additionalProperties: true
 ...
