@@ -1,19 +1,24 @@
+import pytest
 from pathlib import Path
 
 import asdf
 import yaml
 
 
-def test_resources():
+def get_resources():
     resources_root = Path(__file__).parent.parent / "resources"
+    return list(resources_root.glob("**/*.yaml"))
+
+
+@pytest.mark.parametrize("resource_path", get_resources())
+def test_resources(resource_path):
     resource_manager = asdf.get_config().resource_manager
 
-    for resource_path in resources_root.glob("**/*.yaml"):
-        with resource_path.open("rb") as f:
-            resource_content = f.read()
-        resource = yaml.safe_load(resource_content)
-        resource_uri = resource["id"]
-        assert resource_manager[resource_uri] == resource_content
+    with resource_path.open("rb") as f:
+        resource_content = f.read()
+    resource = yaml.safe_load(resource_content)
+    resource_uri = resource["id"]
+    assert resource_manager[resource_uri] == resource_content
 
 
 def test_manifests():
