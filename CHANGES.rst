@@ -5,6 +5,7 @@
 - Add fixed and bounds to base transform schema to properly document them. [#34]
 - Add input_units_equivalencies to base transform schema to properly document it. [#36]
 - Add spline1d schema. [#41]
+- Add cosine, tangent, arcsine, arccosine, and arctangent schemas. [#40]
 
 0.2.0 (2021-12-13)
 ------------------
