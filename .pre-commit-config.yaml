@@ -27,3 +27,9 @@ repos:
   hooks:
     - id: flake8
       args: ["--count"]
+
+- repo: https://github.com/PyCQA/bandit
+  rev: 1.7.2
+  hooks:
+    - id: bandit
+      args: ["--skip", "B101"]
