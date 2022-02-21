@@ -695,6 +695,11 @@ tags:
   title: One dimensional arcsine model.
   description: |-
     One dimensional arcsine.
+- tag_uri: tag:stsci.edu:asdf/transform/arccosine1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/arccosine1d-1.0.0
+  title: One dimensional arccosine model.
+  description: |-
+    One dimensional arccosine.
 - tag_uri: tag:stsci.edu:asdf/transform/slant_orthographic-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/slant_orthographic-1.2.0
   title: The slant orthographic projection.
