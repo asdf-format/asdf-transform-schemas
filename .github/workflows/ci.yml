@@ -16,20 +16,45 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: Schema validation tests
+          - name: Python 3.10 Schema validation tests
+            python-version: '3.10'
+            os: ubuntu-latest
+            toxenv: py310
+
+          - name: Python 3.9 Schema validation tests
             python-version: 3.9
             os: ubuntu-latest
             toxenv: py39
 
-          - name: Check Python files with black autoformatter
-            python-version: 3.9
+          - name: Python 3.8 Schema validation tests
+            python-version: 3.8
             os: ubuntu-latest
-            toxenv: black
+            toxenv: py38
 
-          - name: Check Python files with flake8
+          - name: Python 3.7 Schema validation tests
+            python-version: 3.7
+            os: ubuntu-latest
+            toxenv: py37
+
+          - name: Twine check
             python-version: 3.9
             os: ubuntu-latest
-            toxenv: flake8
+            toxenv: twine
+
+          - name: Code style checks
+            python-version: 3.9
+            os: ubuntu-latest
+            toxenv: codestyle
+
+          - name: macOS
+            python-version: 3.9
+            os: macos-latest
+            toxenv: py39
+
+          - name: Windows
+            python-version: 3.9
+            os: windows-latest
+            toxenv: py39
 
     steps:
       - name: Checkout code
