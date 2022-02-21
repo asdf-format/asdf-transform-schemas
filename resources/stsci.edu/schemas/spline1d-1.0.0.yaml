@@ -1,0 +1,61 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/spline1d-1.0.0"
+tag: "tag:stsci.edu:asdf/transform/spline1d-1.0.0"
+title: >
+  A spline1d model.
+
+description: |
+  A spline1d model represented by an array of its knots, an array of its
+  coefficients, and its degree. In addition the bounding endpoints
+  of the spline can be represented as well
+
+examples:
+  -
+    - Non-bounded spline
+    - |
+        !transform/spline1d-1.0.0
+          knots: !core/ndarray-1.0.0
+                          [0.0, 0.5, 1]
+          coefficients: !core/ndarray-1.0.0
+                          [1.2, 0.3, 56.1]
+          degree: 1
+  -
+    - Bounded spline
+    - |
+        !transform/spline1d-1.0.0
+          knots: !core/ndarray-1.0.0
+                          [0.0, 0.5, 1]
+          coefficients: !core/ndarray-1.0.0
+                          [1.2, 0.3, 56.1]
+          degree: 1
+          spline_bounds: [-0.5, 1.5]
+
+definitions:
+  coeffs:
+    description: |
+      An array of values
+    anyOf:
+      - tag: tag:stsci.edu:asdf/core/ndarray-1.0.0
+      - tag: tag:stsci.edu:asdf/unit/quantity-1.1.0
+      - type: array
+
+allOf:
+  - $ref: "transform-1.2.0"
+  - type: object
+    properties:
+      knots:
+        description: |
+          The spline knots
+        $ref: "#/definitions/coeffs"
+      coefficients:
+        description: |
+          The spline coefficients
+        $ref: "#/definitions/coeffs"
+      degree:
+        type: integer
+      spline_bounds:
+        $ref: "property/bounding_box-1.0.0#definitions/interval"
+    required: [knots, coefficients, degree]
+...
