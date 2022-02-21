@@ -8,10 +8,7 @@ import yaml
 def get_resources():
     resources_root = Path(__file__).parent.parent / "resources"
 
-    return {
-        str(path.relative_to(resources_root)): path
-        for path in resources_root.glob("**/*.yaml")
-    }
+    return {str(path.relative_to(resources_root)): path for path in resources_root.glob("**/*.yaml")}
 
 
 RESOURCES = get_resources()
@@ -30,14 +27,9 @@ def test_resource(resource):
 
 
 def get_manifests():
-    manifests_root = (
-        Path(__file__).parent.parent / "resources" / "asdf-format.org" / "manifests"
-    )
+    manifests_root = Path(__file__).parent.parent / "resources" / "asdf-format.org" / "manifests"
 
-    return {
-        str(path.relative_to(manifests_root)): path
-        for path in manifests_root.glob("*.yaml")
-    }
+    return {str(path.relative_to(manifests_root)): path for path in manifests_root.glob("*.yaml")}
 
 
 MANIFESTS = get_manifests()
@@ -52,9 +44,7 @@ def test_manifest(manifest):
         manifest_content = f.read()
     manifest = yaml.safe_load(manifest_content)
 
-    manifest_schema = asdf.schema.load_schema(
-        "asdf://asdf-format.org/core/schemas/extension_manifest-1.0.0"
-    )
+    manifest_schema = asdf.schema.load_schema("asdf://asdf-format.org/core/schemas/extension_manifest-1.0.0")
 
     # The manifest must be valid against its own schema:
     asdf.schema.validate(manifest, schema=manifest_schema)
