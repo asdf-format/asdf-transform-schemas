@@ -5,8 +5,8 @@ the format of the manifest files has been finalized.
 """
 import argparse
 
-import yaml
 import asdf
+import yaml
 
 
 def parse_args():

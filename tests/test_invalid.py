@@ -1,7 +1,6 @@
-import pytest
 import asdf
+import pytest
 from asdf.tests import helpers
-
 
 purposefully_failing = [
     # old-style bounding box fails

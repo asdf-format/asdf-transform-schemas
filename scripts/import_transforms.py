@@ -3,12 +3,12 @@ Script that imports transform schemas from asdf-standard.
 This file can be removed once the format of the new schemas
 is finalized.
 """
+import argparse
 import glob
 import os
 import re
-import argparse
-import pkg_resources
 
+import pkg_resources
 
 TAG_PATTERN = re.compile(r"^tag: .*?\n", re.MULTILINE | re.DOTALL)
 ID_PATTERN = re.compile(r"^id: .*?/([^/-]+)-.*?\n", re.MULTILINE | re.DOTALL)
