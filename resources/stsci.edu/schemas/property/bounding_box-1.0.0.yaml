@@ -61,10 +61,12 @@ definitions:
     items:
       - $ref: "#/definitions/bound"
       - $ref: "#/definitions/bound"
+
   ignore:
     type: array
     items:
       type: string
+
   order:
     enum: ['C', 'F']
 
