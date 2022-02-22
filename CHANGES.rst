@@ -4,6 +4,7 @@
 - Add inputs and outputs to base transform schema to properly document them. [#33]
 - Add fixed and bounds to base transform schema to properly document them. [#34]
 - Add input_units_equivalencies to base transform schema to properly document it. [#36]
+- Add spline1d schema. [#41]
 
 0.2.0 (2021-12-13)
 ------------------
