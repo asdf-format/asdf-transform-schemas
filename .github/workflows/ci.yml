@@ -71,3 +71,32 @@ jobs:
           python -m pip install tox
       - name: Run tox
         run: tox -e ${{ matrix.toxenv }}
+
+  asdf-astropy-dev:
+    name: Run asdf-astropy development tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout asdf-transform-schemas
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: asdf-transform-schemas
+      - name: Checkout asdf-astropy dev
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: astropy/asdf-astropy
+          ref: main
+          path: asdf-astropy
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install asdf-transform-schemas
+        run: cd asdf-transform-schemas && pip install .
+      - name: Install asdf-astropy
+        run: cd asdf-astropy && pip install -e .[test]
+      - name: Pip Freeze
+        run: pip freeze
+      - name: Run asdf-astropy development tests
+        run: cd asdf-astropy && pytest
