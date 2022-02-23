@@ -4,3 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 120
+force-exclude = '''
+^/(
+  (
+      \.eggs
+    | \.git
+    | \.pytest_cache
+    | \.tox
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+filter_files = true
