@@ -3,6 +3,7 @@
 - Add inputs and outputs to base transform schema to properly document them. [#33]
 - Add spline1d schema. [#41]
 - Add cosine, tangent, arcsine, arccosine, and arctangent schemas. [#40]
+- Fix circular build dependencies for asdf. [#38]
 
 0.2.0 (2021-12-13)
 

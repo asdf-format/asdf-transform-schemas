@@ -6,7 +6,7 @@ if sys.version_info < (3, 9):
 else:
     import importlib.resources as importlib_resources
 
-from asdf.resource import DirectoryResourceMapping
+from asdf_standard import DirectoryResourceMapping
 
 import asdf_transform_schemas
 

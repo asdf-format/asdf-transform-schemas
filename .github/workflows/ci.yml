@@ -124,7 +124,7 @@ jobs:
       - name: Install asdf-transform-schemas
         run: cd asdf-transform-schemas && pip install .
       - name: Install astropy
-        run: cd astropy && pip install -e .[test]
+        run: cd astropy && pip install -e .[all,test]
       - name: Pip Freeze
         run: pip freeze
       - name: Run astropy development tests
