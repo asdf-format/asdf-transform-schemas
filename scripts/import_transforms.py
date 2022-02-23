@@ -3,12 +3,12 @@ Script that imports transform schemas from asdf-standard.
 This file can be removed once the format of the new schemas
 is finalized.
 """
+import argparse
 import glob
 import os
 import re
-import argparse
-import pkg_resources
 
+import pkg_resources
 
 TAG_PATTERN = re.compile(r"^tag: .*?\n", re.MULTILINE | re.DOTALL)
 ID_PATTERN = re.compile(r"^id: .*?/([^/-]+)-.*?\n", re.MULTILINE | re.DOTALL)
@@ -60,9 +60,7 @@ for path in paths:
 
 latest_paths = []
 for name, name_paths in paths_by_name.items():
-    latest_paths.append(
-        sorted(name_paths, key=lambda p: pkg_resources.parse_version(p[-1]))[-1][0]
-    )
+    latest_paths.append(sorted(name_paths, key=lambda p: pkg_resources.parse_version(p[-1]))[-1][0])
 
 
 for path in latest_paths:
@@ -83,9 +81,7 @@ for path in latest_paths:
 
     content = METASCHEMA_PATTERN.sub(f"$schema: {METASCHEMA}\n", content)
 
-    content = EXTERNAL_REF_PATTERN.sub(
-        r"$ref: http://stsci.edu/schemas/asdf/\1", content
-    )
+    content = EXTERNAL_REF_PATTERN.sub(r"$ref: http://stsci.edu/schemas/asdf/\1", content)
     content = INTERNAL_REF_PATTERN.sub(rf"$ref: \1-{VERSION}", content)
 
     content = BANG_TRANSFORM.sub(rf"!<{URI_PREFIX}/\1-{VERSION}>", content)
