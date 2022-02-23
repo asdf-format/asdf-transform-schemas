@@ -51,4 +51,3 @@ allOf:
 
     required: [phi, theta, psi, direction]
 ...
-

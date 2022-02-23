@@ -5,8 +5,8 @@ the format of the manifest files has been finalized.
 """
 import argparse
 
-import yaml
 import asdf
+import yaml
 
 
 def parse_args():
@@ -28,33 +28,23 @@ yaml.add_representer(MultilineString, represent_multiline_string)
 
 args = parse_args()
 
-asdf_standard_version = (
-    args.version_map_path.split("/")[-1].rsplit(".", 1)[0].split("-")[-1]
-)
+asdf_standard_version = args.version_map_path.split("/")[-1].rsplit(".", 1)[0].split("-")[-1]
 
 with open(args.version_map_path) as f:
     version_map = yaml.safe_load(f.read())
 
 manifest = {}
 
-manifest[
-    "id"
-] = f"http://stsci.edu/asdf/extensions/transform/manifests/transform-{asdf_standard_version}"
-manifest[
-    "extension_uri"
-] = f"http://stsci.edu/asdf/extensions/transform-{asdf_standard_version}"
+manifest["id"] = f"http://stsci.edu/asdf/extensions/transform/manifests/transform-{asdf_standard_version}"
+manifest["extension_uri"] = f"http://stsci.edu/asdf/extensions/transform-{asdf_standard_version}"
 manifest["title"] = f"Transform extension {asdf_standard_version}"
-manifest["description"] = MultilineString(
-    "A set of tags for serializing data transforms."
-)
+manifest["description"] = MultilineString("A set of tags for serializing data transforms.")
 manifest["tags"] = []
 
 for tag_base, tag_version in version_map["tags"].items():
     if tag_base.startswith("tag:stsci.edu:asdf/transform/"):
         tag_uri = f"{tag_base}-{tag_version}"
-        schema_uri = tag_uri.replace(
-            "tag:stsci.edu:asdf/transform/", "http://stsci.edu/schemas/asdf/transform/"
-        )
+        schema_uri = tag_uri.replace("tag:stsci.edu:asdf/transform/", "http://stsci.edu/schemas/asdf/transform/")
         schema = asdf.schema.load_schema(schema_uri)
         manifest["tags"].append(
             {

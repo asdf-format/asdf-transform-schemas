@@ -11,7 +11,7 @@ description: >
 
 examples:
   -
-    - A 1D box of width 4.0, amplitude 10.0, centered at x=1.5. 
+    - A 1D box of width 4.0, amplitude 10.0, centered at x=1.5.
     - |
       !transform/box1d-1.0.0
         amplitude: 10.0

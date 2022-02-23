@@ -16,20 +16,45 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: Schema validation tests
+          - name: Python 3.10 Schema validation tests
+            python-version: '3.10'
+            os: ubuntu-latest
+            toxenv: py310
+
+          - name: Python 3.9 Schema validation tests
             python-version: 3.9
             os: ubuntu-latest
             toxenv: py39
 
-          - name: Check Python files with black autoformatter
-            python-version: 3.9
+          - name: Python 3.8 Schema validation tests
+            python-version: 3.8
             os: ubuntu-latest
-            toxenv: black
+            toxenv: py38
 
-          - name: Check Python files with flake8
+          - name: Python 3.7 Schema validation tests
+            python-version: 3.7
+            os: ubuntu-latest
+            toxenv: py37
+
+          - name: Twine check
             python-version: 3.9
             os: ubuntu-latest
-            toxenv: flake8
+            toxenv: twine
+
+          - name: Code style checks
+            python-version: 3.9
+            os: ubuntu-latest
+            toxenv: codestyle
+
+          - name: macOS
+            python-version: 3.9
+            os: macos-latest
+            toxenv: py39
+
+          - name: Windows
+            python-version: 3.9
+            os: windows-latest
+            toxenv: py39
 
     steps:
       - name: Checkout code
@@ -46,3 +71,61 @@ jobs:
           python -m pip install tox
       - name: Run tox
         run: tox -e ${{ matrix.toxenv }}
+
+  asdf-astropy-dev:
+    name: Run asdf-astropy development tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout asdf-transform-schemas
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: asdf-transform-schemas
+      - name: Checkout asdf-astropy dev
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: astropy/asdf-astropy
+          ref: main
+          path: asdf-astropy
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install asdf-transform-schemas
+        run: cd asdf-transform-schemas && pip install .
+      - name: Install asdf-astropy
+        run: cd asdf-astropy && pip install -e .[test]
+      - name: Pip Freeze
+        run: pip freeze
+      - name: Run asdf-astropy development tests
+        run: cd asdf-astropy && pytest
+
+  astropy-dev:
+    name: Run astropy development tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout asdf-transform-schemas
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: asdf-transform-schemas
+      - name: Checkout astropy dev
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: astropy/astropy
+          ref: main
+          path: astropy
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install asdf-transform-schemas
+        run: cd asdf-transform-schemas && pip install .
+      - name: Install astropy
+        run: cd astropy && pip install -e .[test]
+      - name: Pip Freeze
+        run: pip freeze
+      - name: Run astropy development tests
+        run: cd astropy && pytest astropy/io/misc/asdf

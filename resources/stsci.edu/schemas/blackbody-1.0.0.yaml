@@ -30,7 +30,7 @@ allOf:
         description: Scale factor.
       temperature:
         $ref: "../unit/quantity-1.1.0"
-        description: Blackbody temperature. 
+        description: Blackbody temperature.
 
     required: ['scale', 'temperature']
 ...
