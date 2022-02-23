@@ -680,6 +680,31 @@ tags:
   title: One dimensional sine model.
   description: |-
     One dimensional sine.
+- tag_uri: tag:stsci.edu:asdf/transform/cosine1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/cosine1d-1.0.0
+  title: One dimensional cosine model.
+  description: |-
+    One dimensional cosine.
+- tag_uri: tag:stsci.edu:asdf/transform/tangent1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/tangent1d-1.0.0
+  title: One dimensional tangent model.
+  description: |-
+    One dimensional tangent.
+- tag_uri: tag:stsci.edu:asdf/transform/arcsine1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/arcsine1d-1.0.0
+  title: One dimensional arcsine model.
+  description: |-
+    One dimensional arcsine.
+- tag_uri: tag:stsci.edu:asdf/transform/arccosine1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/arccosine1d-1.0.0
+  title: One dimensional arccosine model.
+  description: |-
+    One dimensional arccosine.
+- tag_uri: tag:stsci.edu:asdf/transform/arctangent1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/arctangent1d-1.0.0
+  title: One dimensional arctangent model.
+  description: |-
+    One dimensional arctangent.
 - tag_uri: tag:stsci.edu:asdf/transform/slant_orthographic-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/slant_orthographic-1.2.0
   title: The slant orthographic projection.
