@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from pathlib import Path
 from setuptools import setup, find_packages
 
 
@@ -10,9 +11,13 @@ package_dir = {
     "asdf_transform_schemas.resources": "resources",
 }
 
-package_data = {
-    "asdf_transform_schemas.resources": ["*.yaml", "**/*.yaml", "**/**/*.yaml"],
-}
+
+def package_yaml_files(directory):
+    paths = sorted(Path(directory).rglob("*.yaml"))
+    return [str(p.relative_to(directory)) for p in paths]
+
+
+package_data = {"asdf_transform_schemas.resources": package_yaml_files("resources")}
 
 setup(
     use_scm_version=True,
