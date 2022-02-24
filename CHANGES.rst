@@ -1,6 +1,7 @@
 0.2.1 (unreleased)
 
 - Add inputs and outputs to base transform schema to properly document them. [#33]
+- Add spline1d schema. [#41]
 
 0.2.0 (2021-12-13)
 

@@ -556,6 +556,13 @@ tags:
     $$P = \sum_{i, j=0}^{i+j=n}c_{ij} * x^{i} * y^{j}$$
 
     Invertibility: This transform is not automatically invertible.
+- tag_uri: tag:stsci.edu:asdf/transform/spline1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/spline1d-1.0.0
+  title: A spline1d model.
+  description: |-
+    A spline1d model represented by an array of its knots, an array of its
+    coefficients, and its degree. In addition the bounding endpoints
+    of the spline can be represented as well
 - tag_uri: tag:stsci.edu:asdf/transform/power-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/power-1.2.0
   title: Perform a list of subtransforms in parallel and then raise each result to
