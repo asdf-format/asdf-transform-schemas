@@ -28,7 +28,7 @@ allOf:
         anyOf:
           - $ref: "../unit/quantity-1.1.0"
           - type: number
-        description: Denominator in log. 
+        description: Denominator in log.
 
     required: ['amplitude', 'tau']
 ...
