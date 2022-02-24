@@ -26,5 +26,19 @@ properties:
       can provide it automatically.
 
     $ref: "transform-1.2.0"
+
+  inputs:
+    description: |
+      The names of the model's evaluation input variables.
+    type: array
+    items:
+      type: string
+
+  outputs:
+    description: |
+      The names of the model's evaluation output variables.
+    type: array
+    items:
+      type: string
 additionalProperties: true
 ...
