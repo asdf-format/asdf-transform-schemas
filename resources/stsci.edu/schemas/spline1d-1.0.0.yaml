@@ -12,24 +12,14 @@ description: |
 
 examples:
   -
-    - Non-bounded spline
+    - Example spline
     - |
         !transform/spline1d-1.0.0
           knots: !core/ndarray-1.0.0
-                          [0.0, 0.5, 1]
+            [0.0, 0.5, 1]
           coefficients: !core/ndarray-1.0.0
-                          [1.2, 0.3, 56.1]
+            [1.2, 0.3, 56.1]
           degree: 3
-  -
-    - Bounded spline
-    - |
-        !transform/spline1d-1.0.0
-          knots: !core/ndarray-1.0.0
-                          [0.0, 0.5, 1]
-          coefficients: !core/ndarray-1.0.0
-                          [1.2, 0.3, 56.1]
-          degree: 5
-          spline_bounds: [-0.5, 1.5]
 
 definitions:
   coeffs:
@@ -55,9 +45,5 @@ allOf:
         type: integer
         minimum: 1
         maximum: 5
-      spline_bounds:
-        description: |
-          The optional bounds for the spline
-        $ref: "property/bounding_box-1.0.0#definitions/interval"
     required: [knots, coefficients, degree]
 ...
