@@ -276,6 +276,42 @@ purposefully_failing = [
       ignore: [z]
       order: test
     """,
+    # Spline degree is too high
+    """
+    !transform/spline1d-1.0.0
+      knots: !core/ndarray-1.0.0
+        [0.0, 0.5, 1]
+      coefficients: !core/ndarray-1.0.0
+        [1.2, 0.3, 56.1]
+      degree: 6
+    """,
+    # Spline degree is too small
+    """
+    !transform/spline1d-1.0.0
+      knots: !core/ndarray-1.0.0
+        [0.0, 0.5, 1]
+      coefficients: !core/ndarray-1.0.0
+        [1.2, 0.3, 56.1]
+      degree: 0
+    """,
+    # Spline knots are not 1D arrays
+    """
+    !transform/spline1d-1.0.0
+      knots: !core/ndarray-1.0.0
+        [[0.0, 0.5, 1], [0.0, 0.5, 1]]
+      coefficients: !core/ndarray-1.0.0
+        [1.2, 0.3, 56.1]
+      degree: 3
+    """,
+    # Spline coefficients are not 1D arrays
+    """
+    !transform/spline1d-1.0.0
+      knots: !core/ndarray-1.0.0
+        [0.0, 0.5, 1]
+      coefficients: !core/ndarray-1.0.0
+        [[1.2, 0.3, 56.1], [3.5, 7.1, 4.3]]
+      degree: 3
+    """,
 ]
 
 
