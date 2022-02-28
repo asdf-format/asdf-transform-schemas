@@ -4,6 +4,7 @@
 - Add schemas to properly support bounding_box and compound_bounding_box. [#31]
 - Add fixed and bounds to base transform schema to properly document them. [#34]
 - Add input_units_equivalencies to base transform schema to properly document it. [#36]
+- Update spline1d schema. [#46]
 
 0.2.2 (2022-02-24)
 ------------------
