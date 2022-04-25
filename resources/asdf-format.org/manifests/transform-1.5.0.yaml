@@ -660,6 +660,11 @@ tags:
   title: A Scale model.
   description: |-
     Scale the input by a dimensionless factor.
+- tag_uri: tag:stsci.edu:asdf/transform/schechter1d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/schechter1d-1.0.0
+  title: Schechter luminosity function
+  description: |-
+    Schechter luminosity function
 - tag_uri: tag:stsci.edu:asdf/transform/sersic1d-1.0.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/sersic1d-1.0.0
   title: One dimensional Sersic surface brightness profile.

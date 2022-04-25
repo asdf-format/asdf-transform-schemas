@@ -27,7 +27,7 @@ allOf:
         description: >
           The normalization factor in units of number density.
       m_star:
-        - type: number
+        type: number
         description: >
           The characteristic magnitude where the power-law form of the function
           cuts off into the exponential form.
@@ -39,4 +39,3 @@ allOf:
           The power-law index, defining the faint-end slope of the luminosity function
     required: ['phi_star', 'm_star', 'alpha']
 ...
-
