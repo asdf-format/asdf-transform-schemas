@@ -61,7 +61,7 @@ jobs:
             repository: sunpy/sunpy
             ref: main
             install_command: pip install -e .[tests,all]
-            test_command: pytest sunpy/io/
+            test_command: pytest -vv sunpy/io/
           - package_name: dkist
             repository: DKISTDC/dkist
             ref: main
