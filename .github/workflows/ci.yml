@@ -132,3 +132,41 @@ jobs:
         run: pip freeze
       - name: Run astropy development tests
         run: cd astropy && pytest astropy/io/misc/asdf
+
+  full-dev:
+    name: Run asdf-transform-schemas tests with both astropy and asdf-astropy development versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout asdf-transform-schemas
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: asdf-transform-schemas
+      - name: Checkout astropy dev
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: astropy/astropy
+          ref: main
+          path: astropy
+      - name: Checkout asdf-astropy dev
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: astropy/asdf-astropy
+          ref: main
+          path: asdf-astropy
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install asdf-transform-schemas
+        run: cd asdf-transform-schemas && pip install .
+      - name: Install astropy
+        run: cd astropy && pip install -e .[all,test]
+      - name: Install asdf-astropy
+        run: cd asdf-astropy && pip install -e .[test]
+      - name: Pip Freeze
+        run: pip freeze
+      - name: Run asdf-transform-schemas development tests
+        run: cd asdf-transform-schemas && pytest
