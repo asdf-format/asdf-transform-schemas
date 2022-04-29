@@ -6,6 +6,7 @@
 - Add input_units_equivalencies to base transform schema to properly document it. [#36]
 - Update spline1d schema. [#46]
 - Add Schechter1D schema. [#54]
+- Fix fix_inputs tag bug. [#57]
 
 0.2.2 (2022-02-24)
 ------------------

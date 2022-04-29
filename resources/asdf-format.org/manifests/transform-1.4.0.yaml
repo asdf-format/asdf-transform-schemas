@@ -249,8 +249,8 @@ tags:
     outputs.
 
     Invertibility: This transform is not automatically invertible.
-- tag_uri: tag:stsci.edu:asdf/transform/fix_inputs-1.2.0
-  schema_uri: http://stsci.edu/schemas/asdf/transform/fix_inputs-1.2.0
+- tag_uri: tag:stsci.edu:asdf/transform/fix_inputs-1.1.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/fix_inputs-1.1.0
   title: Set to a constant selected input arguments of a model.
   description: |-
     This operation takes as the right hand side a dict equivalent
