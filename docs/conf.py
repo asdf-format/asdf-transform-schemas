@@ -151,3 +151,11 @@ extensions += ["sphinx_asdf"]  # noqa
 
 def setup(app):
     app.add_css_file("custom.css")
+
+
+# -- sphinx_asdf configuration ---------------------------------------------
+
+# Top-level directory containing ASDF schemas (relative to current directory)
+asdf_schema_path = "../resources/stsci.edu"
+# This is the prefix common to all schema IDs in this repository
+asdf_schema_standard_prefix = "schemas"

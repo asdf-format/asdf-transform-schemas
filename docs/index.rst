@@ -19,6 +19,8 @@ Included Schemas
 .. toctree::
   :maxdepth: 2
 
+  transforms.rst
+
 Index
 =====
 
