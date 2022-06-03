@@ -35,7 +35,7 @@ except KeyError:
     pass
 
 try:
-    from sphinx_astropy.conf.v1 import *
+    from sphinx_astropy.conf.v1 import *  # noqa
 except ImportError:
     print("ERROR: the documentation requires the sphinx-astropy package to be installed")
     sys.exit(1)
@@ -54,9 +54,11 @@ setup_cfg = dict(conf.items("metadata"))
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.2'
 
-intersphinx_mapping["pypa-packaging"] = ("https://packaging.python.org/en/latest/", None)
-intersphinx_mapping["asdf-standard"] = ("https://asdf-standard.readthedocs.io/en/latest/", None)
-intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)
+intersphinx_mapping["pypa-packaging"] = ("https://packaging.python.org/en/latest/", None)  # noqa
+intersphinx_mapping["asdf"] = ("https://asdf.readthedocs.io/en/latest/", None)  # noqa
+intersphinx_mapping["asdf-standard"] = ("https://asdf-standard.readthedocs.io/en/latest/", None)  # noqa
+intersphinx_mapping["asdf-astropy"] = ("https://asdf-astropy.readthedocs.io/en/latest/", None)  # noqa
+intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)  # noqa
 
 # To perform a Sphinx version check that needs to be more specific than
 # major.minor, call `check_sphinx_version("x.y.z")` here.
@@ -64,12 +66,11 @@ intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns.append("_templates")
+exclude_patterns.append("_templates")  # noqa
 
 # This is added to the end of RST files - a good place to put substitutions to
 # be used globally.
-rst_epilog += """
-"""
+rst_epilog += """"""  # noqa
 
 # -- Project information ------------------------------------------------------
 
@@ -81,7 +82,7 @@ copyright = "{0}, {1}".format(datetime.datetime.now().year, setup_cfg["author"])
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-from pkg_resources import get_distribution
+from pkg_resources import get_distribution  # noqa
 
 release = get_distribution(setup_cfg["name"]).version
 # for example take major/minor
@@ -145,7 +146,7 @@ latex_logo = "_static/logo.pdf"
 man_pages = [("index", project.lower(), project + " Documentation", [author], 1)]
 
 sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname("__file__")), "sphinxext"))
-extensions += ["sphinx_asdf"]
+extensions += ["sphinx_asdf"]  # noqa
 
 
 def setup(app):
