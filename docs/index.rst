@@ -13,14 +13,15 @@ are packaged for use by the :ref:`ASDF <asdf:asdf>` library.
    This is only a schema package, to use these schemas to serialize astropy models,
    one must install the :ref:`asdf-astropy <asdf-astropy:asdf-astropy>` package.
 
-Included Schemas
-================
+Included Resources
+==================
 
 .. toctree::
   :maxdepth: 1
 
   transforms.rst
   legacy.rst
+  manifests.rst
 
 Index
 =====
