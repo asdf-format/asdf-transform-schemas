@@ -16,12 +16,28 @@ are packaged for use by the :ref:`ASDF <asdf:asdf>` library.
 Included Resources
 ==================
 
+The following are listings of all the schemas provided by this package for ASDF.
+
+.. note::
+  Typically, schemas are used in ASDF via their tag, which can be found in the manifest.
+  Using a transform in ASDF it is recommended that you use the tag instead of a direct
+  reference to the schema. When doing so make sure you are using the correct manifest version.
+
 .. toctree::
   :maxdepth: 1
 
   transforms.rst
   legacy.rst
   manifests.rst
+
+Developer Resources
+===================
+
+.. toctree::
+  :maxdepth: 1
+
+  contributing.rst
+  changes.rst
 
 Index
 =====
