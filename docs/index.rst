@@ -17,7 +17,7 @@ Included Schemas
 ================
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
 
   transforms.rst
   legacy.rst
