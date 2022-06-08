@@ -1,5 +1,5 @@
 0.2.3 (unreleased)
------------------
+------------------
 
 - Add schemas to properly support bounding_box and compound_bounding_box. [#31]
 - Add fixed and bounds to base transform schema to properly document them. [#34]
@@ -7,6 +7,7 @@
 - Update spline1d schema. [#46]
 - Add Schechter1D schema. [#54]
 - Fix fix_inputs tag bug. [#57]
+- Create docs for package. [#59]
 
 0.2.2 (2022-02-24)
 ------------------
