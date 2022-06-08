@@ -5,8 +5,7 @@ id: "http://stsci.edu/schemas/asdf/transform/schechter1d-1.0.0"
 title: >
   Schechter luminosity function
 description: >
-    Schechter luminosity function (`Schechter 1976
-    <https://ui.adsabs.harvard.edu/abs/1976ApJ...203..297S/abstract>`_),
+    Schechter luminosity function ([Schechter 1976](https://ui.adsabs.harvard.edu/abs/1976ApJ...203..297S/abstract)),
     parameterized in terms of magnitudes.
 examples:
   -

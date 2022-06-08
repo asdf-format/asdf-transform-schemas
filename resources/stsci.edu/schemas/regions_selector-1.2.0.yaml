@@ -6,7 +6,7 @@ tag: "tag:stsci.edu:asdf/transform/regions_selector-1.2.0"
 title: >
   Represents a discontinuous transform.
 description: |
-  Maps regions to transgorms and evaluates the transforms with the corresponding inputs.
+  Maps regions to transforms and evaluates the transforms with the corresponding inputs.
 
 examples:
   -
@@ -58,7 +58,7 @@ allOf:
       label_mapper:
         description: |
           An instance of
-          [label_mapper-1.2.0](ref:transform/label_mapper-1.2.0)
+          [label_mapper-1.2.0](ref:schemas/label_mapper-1.2.0)
         $ref: "./label_mapper-1.2.0"
       inputs:
         description: |
