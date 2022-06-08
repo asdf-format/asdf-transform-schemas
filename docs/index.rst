@@ -20,6 +20,7 @@ Included Schemas
   :maxdepth: 2
 
   transforms.rst
+  legacy.rst
 
 Index
 =====
