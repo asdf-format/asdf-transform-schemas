@@ -19,94 +19,141 @@ examples:
   -
     - A compound bounding box with one selector_args and 1D bounding_box
     - |
-      !transform/property/compound_bounding_box-1.0.0
-        selector_args:
-          - argument: x
-            ignore: true
-        cbbox:
-          - key: [0] # value of input x is 0 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                y: [1.0, 2.0]
-          - key: [3] # value of input x is 3 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                y: [4.0, 5.0]
+      !transform/constant-1.4.0
+        value: 1
+        dimensions: 2
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x
+              ignore: true
+          cbbox:
+            - key: [0] # value of input x is 0 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  y: [1.0, 2.0]
+            - key: [3] # value of input x is 3 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  y: [4.0, 5.0]
   -
     - A compound bounding box with one selector_args and 2D bounding_box
     - |
-      !transform/property/compound_bounding_box-1.0.0
-        selector_args:
-          - argument: x
-            ignore: true
-        cbbox:
-          - key: [0] # value of input x is 0 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                y: [1.0, 2.0]
-                z: [3.0, 4.0]
-          - key: [5] # value of input x is 5 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-               y: [6.0, 7.0]
-               z: [8.0, 9.0]
-        order: 'C'
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/shift-1.2.0
+            offset: 3.0
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x
+              ignore: true
+          cbbox:
+            - key: [0] # value of input x is 0 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x0: [1.0, 2.0]
+                  x1: [3.0, 4.0]
+            - key: [5] # value of input x is 5 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x0: [6.0, 7.0]
+                  x1: [8.0, 9.0]
+          order: 'C'
   -
     - A compound bounding box with two selector_args and 1D bounding_box
     - |
-      !transform/property/compound_bounding_box-1.0.0
-        selector_args:
-          - argument: x
-            ignore: true
-          - argument: y
-            ignore: true
-        cbbox:
-          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                z: [2.0, 3.0]
-          - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                z: [6.0, 7.0]
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/shift-1.2.0
+            offset: 3.0
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x0
+              ignore: true
+            - argument: x1
+              ignore: true
+          cbbox:
+            - key: [0, 1] # both value of input x0 is 0 and value of input x1 is 1 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x: [2.0, 3.0]
+            - key: [4, 5] # both value of input x0 is 4 and value of input x1 is 5 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x: [6.0, 7.0]
   -
     - A compound bounding box with one selector_args and 1D bounding_box
     - |
-      !transform/property/compound_bounding_box-1.0.0
-        selector_args:
-          - argument: x
-            ignore: true
-        cbbox:
-          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                z: [2.0, 3.0]
-          - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                z: [6.0, 7.0]
-        ignore: [y]
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/shift-1.2.0
+            offset: 3.0
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x
+              ignore: true
+          cbbox:
+            - key: [0] # both value of input x is 0
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x0: [2.0, 3.0]
+            - key: [1] # both value of input x is 1
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x0: [6.0, 7.0]
+          ignore: [x1]
   -
     - A compound bounding box with two selector_args and 2D bounding_box
     - |
-      !transform/property/compound_bounding_box-1.0.0
-        selector_args:
-          - argument: x
-            ignore: true
-          - argument: y
-            ignore: true
-        cbbox:
-          - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                a: [2.0, 3.0]
-                b: [4.0, 5.0]
-          - key: [6, 7] # both value of input x is 6 and value of input y is 7 to select this box
-            bbox: !transform/property/bounding_box-1.0.0
-              intervals:
-                a: [8.0, 9.0]
-                b: [10.0, 11.0]
-        order: 'F'
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 3.0
+              - !transform/shift-1.2.0
+                offset: 4.0
+        bounding_box: !transform/property/compound_bounding_box-1.0.0
+          selector_args:
+            - argument: x00
+              ignore: true
+            - argument: x10
+              ignore: true
+          cbbox:
+            - key: [0, 1] # both value of input x00 is 0 and value of input x10 is 1 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x01: [2.0, 3.0]
+                  x11: [4.0, 5.0]
+            - key: [6, 7] # both value of input x00 is 6 and value of input x10 is 7 to select this box
+              bbox: !transform/property/bounding_box-1.0.0
+                intervals:
+                  x01: [8.0, 9.0]
+                  x11: [10.0, 11.0]
+          order: 'F'
 
 definitions:
   selector_arg:

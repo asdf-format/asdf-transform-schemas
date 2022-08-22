@@ -19,34 +19,60 @@ examples:
   -
     - A 1D bounding box
     - |
-      !transform/property/bounding_box-1.0.0
-        intervals:
-          x: [1.0, 2.0]
+      !transform/constant-1.4.0
+        value: 1
+        dimensions: 1
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x: [1.0, 2.0]
   -
     - A 2D bounding box
     - |
-      !transform/property/bounding_box-1.0.0
-        intervals:
-          x: [1.0, 2.0]
-          y: [3.0, 4.0]
-        order: C
+      !transform/constant-1.4.0
+        value: 1
+        dimensions: 2
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x: [1.0, 2.0]
+            y: [3.0, 4.0]
+          order: C
   -
     - A 3D bounding box
     - |
-      !transform/property/bounding_box-1.0.0
-        intervals:
-          x: [1.0, 2.0]
-          y: [3.0, 4.0]
-          z: [5.0, 6.0]
-        order: F
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/shift-1.2.0
+            offset: 3.0
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x0: [1.0, 2.0]
+            x1: [3.0, 4.0]
+            x: [5.0, 6.0]
+          order: F
   -
     - A 3D bounding box with ignored inputs
     - |
-      !transform/property/bounding_box-1.0.0
-        intervals:
-          x: [1.0, 2.0]
-        ignore: [y, z]
-        order: F
+      !transform/concatenate-1.2.0
+        forward:
+          - !transform/concatenate-1.2.0
+            forward:
+              - !transform/shift-1.2.0
+                offset: 1.0
+              - !transform/shift-1.2.0
+                offset: 2.0
+          - !transform/shift-1.2.0
+            offset: 3.0
+        bounding_box: !transform/property/bounding_box-1.0.0
+          intervals:
+            x: [1.0, 2.0]
+          ignore: [x0, x1]
+          order: F
 
 definitions:
   bound:
