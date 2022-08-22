@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/divide-1.2.0"
-tag: "tag:stsci.edu:asdf/transform/divide-1.2.0"
 title: >
   Perform a list of subtransforms in parallel and then
   divide their results.

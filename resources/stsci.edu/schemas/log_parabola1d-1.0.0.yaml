@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/log_parabola1d-1.0.0"
-tag: "tag:stsci.edu:asdf/transform/log_parabola1d-1.0.0"
 title: >
   One dimensional log parabola model (sometimes called curved power law).
 

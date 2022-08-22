@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/plate_carree-1.1.0"
-tag: "tag:stsci.edu:asdf/transform/plate_carree-1.1.0"
 title: |
   The plate carrée projection.
 

@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/sanson_flamsteed-1.1.0"
-tag: "tag:stsci.edu:asdf/transform/sanson_flamsteed-1.1.0"
 title: |
   The Sanson-Flamsteed projection.
 
