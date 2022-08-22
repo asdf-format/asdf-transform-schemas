@@ -61,8 +61,8 @@ examples:
             - key: [5] # value of input x is 5 to select this box
               bbox: !transform/property/bounding_box-1.0.0
                 intervals:
-                 x0: [6.0, 7.0]
-                 x1: [8.0, 9.0]
+                  x0: [6.0, 7.0]
+                  x1: [8.0, 9.0]
           order: 'C'
   -
     - A compound bounding box with two selector_args and 1D bounding_box
@@ -84,11 +84,11 @@ examples:
             - argument: x1
               ignore: true
           cbbox:
-            - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
+            - key: [0, 1] # both value of input x0 is 0 and value of input x1 is 1 to select this box
               bbox: !transform/property/bounding_box-1.0.0
                 intervals:
                   x: [2.0, 3.0]
-            - key: [4, 5] # both value of input x is 4 and value of input y is 5 to select this box
+            - key: [4, 5] # both value of input x0 is 4 and value of input x1 is 5 to select this box
               bbox: !transform/property/bounding_box-1.0.0
                 intervals:
                   x: [6.0, 7.0]
@@ -143,12 +143,12 @@ examples:
             - argument: x10
               ignore: true
           cbbox:
-            - key: [0, 1] # both value of input x is 0 and value of input y is 1 to select this box
+            - key: [0, 1] # both value of input x00 is 0 and value of input x10 is 1 to select this box
               bbox: !transform/property/bounding_box-1.0.0
                 intervals:
                   x01: [2.0, 3.0]
                   x11: [4.0, 5.0]
-            - key: [6, 7] # both value of input x is 6 and value of input y is 7 to select this box
+            - key: [6, 7] # both value of input x00 is 6 and value of input x10 is 7 to select this box
               bbox: !transform/property/bounding_box-1.0.0
                 intervals:
                   x01: [8.0, 9.0]
