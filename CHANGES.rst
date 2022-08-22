@@ -1,4 +1,4 @@
-0.2.3 (unreleased)
+0.2.3 (2022-08-22)
 ------------------
 
 - Add schemas to properly support bounding_box and compound_bounding_box. [#31]
