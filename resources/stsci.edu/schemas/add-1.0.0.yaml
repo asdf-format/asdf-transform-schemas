@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/add-1.0.0"
-tag: "tag:stsci.edu:asdf/transform/add-1.0.0"
 title: >
   Perform a list of subtransforms in parallel and then
   add their results together.

@@ -2,7 +2,6 @@
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
 id: "http://stsci.edu/schemas/asdf/transform/zenithal_equidistant-1.2.0"
-tag: "tag:stsci.edu:asdf/transform/zenithal_equidistant-1.2.0"
 title: |
   The zenithal equidistant projection.
 
