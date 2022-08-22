@@ -9,6 +9,7 @@
 - Fix fix_inputs tag bug. [#57]
 - Create docs for package. [#59]
 - Move packaging configuration to ``pyproject.toml``. [#62]
+- Remove unnecessary ``tag:`` entry from all schemas. [#65]
 
 0.2.2 (2022-02-24)
 ------------------
