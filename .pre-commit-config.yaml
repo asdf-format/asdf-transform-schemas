@@ -17,6 +17,11 @@ repos:
     - id: pyupgrade
       args: ["--py38-plus"]
 
+- repo: https://github.com/fsouza/autoflake8
+  rev: v0.4.0
+  hooks:
+  - id: autoflake8
+
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
   hooks:
@@ -26,6 +31,11 @@ repos:
   rev: 22.8.0
   hooks:
     - id: black
+
+- repo: https://github.com/asottile/blacken-docs
+  rev: v1.12.1
+  hooks:
+    - id: blacken-docs
 
 - repo: https://github.com/PyCQA/flake8
   rev: 5.0.4
