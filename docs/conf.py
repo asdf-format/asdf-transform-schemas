@@ -29,7 +29,7 @@ from pathlib import Path
 
 # Ensure documentation examples are determinstically random.
 import numpy
-import toml
+import tomli
 from pkg_resources import get_distribution
 
 try:
@@ -44,8 +44,8 @@ except ImportError:
     sys.exit(1)
 
 # Get configuration information from `pyproject.toml`
-with open(Path(__file__).parent.parent / "pyproject.toml") as configuration_file:
-    conf = toml.load(configuration_file)
+with open(Path(__file__).parent.parent / "pyproject.toml", "rb") as configuration_file:
+    conf = tomli.load(configuration_file)
 configuration = conf["project"]
 
 # -- General configuration ----------------------------------------------------
@@ -120,7 +120,7 @@ html_logo = "_static/logo.png"
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "{0} v{1}".format(project, release)
+html_title = f"{project} v{release}"
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = project + "doc"
