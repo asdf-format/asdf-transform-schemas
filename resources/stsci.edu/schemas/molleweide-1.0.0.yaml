@@ -21,5 +21,7 @@ description: |
   Invertibility: All ASDF tools are required to provide the inverse of
   this transform.
 
-$ref: "pseudocylindrical-1.0.0"
+allOf:
+  - $ref: "pseudocylindrical-1.0.0"
 ...
+

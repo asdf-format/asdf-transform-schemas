@@ -23,5 +23,7 @@ description: |
   Invertibility: All ASDF tools are required to provide the inverse of
   this transform.
 
-$ref: "cylindrical-1.0.0"
+allOf:
+  - $ref: "cylindrical-1.0.0"
 ...
+
