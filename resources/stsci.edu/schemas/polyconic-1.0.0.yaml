@@ -14,4 +14,3 @@ description: |
 allOf:
   - $ref: "pseudoconic-1.0.0"
 ...
-

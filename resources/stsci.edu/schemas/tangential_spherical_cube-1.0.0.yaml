@@ -14,4 +14,3 @@ description: |
 allOf:
   - $ref: "quadcube-1.0.0"
 ...
-

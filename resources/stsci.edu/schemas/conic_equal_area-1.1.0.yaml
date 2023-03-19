@@ -28,4 +28,3 @@ description: |
 allOf:
   - $ref: "conic-1.1.0"
 ...
-

@@ -28,4 +28,3 @@ description: |
 allOf:
   - $ref: "pseudocylindrical-1.1.0"
 ...
-
