@@ -11,5 +11,6 @@ description: |
   Invertibility: All ASDF tools are required to provide the inverse of
   this transform.
 
-$ref: "quadcube-1.0.0"
+allOf:
+  - $ref: "quadcube-1.0.0"
 ...
