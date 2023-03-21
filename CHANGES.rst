@@ -2,6 +2,7 @@
 ------------------
 
 - Move root-level $ref in schemas to an allOf combiner. [#87]
+- Fix URI fragment format in transform-1.2 schema. [#88]
 
 0.3.0 (2022-08-22)
 ------------------
