@@ -68,8 +68,8 @@ jobs:
             repository: asdf-format/asdf-standard
             install_command: pip install -e .[test]
             test_command: pytest
-          - package_name: asdf-transform-schemas
-            repository: asdf-format/asdf-transform-schemas
+          - package_name: asdf-unit-schemas
+            repository: asdf-format/asdf-unit-schemas
             install_command: pip install -e .[test]
             test_command: pytest
           - package_name: asdf-wcs-schemas
