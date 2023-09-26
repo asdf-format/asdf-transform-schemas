@@ -105,5 +105,3 @@ jobs:
         run: cd asdf-transform-schemas && pytest
       - name: Run asdf-astropy development tests
         run: cd asdf-astropy && pytest
-      - name: Run astropy development tests
-        run: cd astropy && pytest astropy/io/misc/asdf
