@@ -1,4 +1,4 @@
-0.3.1 (unreleased)
+0.4.0 (2023-10-18)
 ------------------
 
 - Move root-level $ref in schemas to an allOf combiner. [#87]
