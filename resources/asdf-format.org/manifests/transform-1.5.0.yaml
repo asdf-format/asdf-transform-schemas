@@ -675,6 +675,11 @@ tags:
   title: Two dimensional Sersic surface brightness profile.
   description: |-
     Two dimensional Sersic surface brightness profile.
+- tag_uri: tag:stsci.edu:asdf/transform/general_sersic2d-1.0.0
+  schema_uri: http://stsci.edu/schemas/asdf/transform/general_sersic2d-1.0.0
+  title: Two dimensional Generalized Sersic surface brightness profile.
+  description: |-
+    Two dimensional Sersic surface brightness profile over a generalized ellipse.
 - tag_uri: tag:stsci.edu:asdf/transform/shift-1.2.0
   schema_uri: http://stsci.edu/schemas/asdf/transform/shift-1.2.0
   title: A Shift opeartion.
