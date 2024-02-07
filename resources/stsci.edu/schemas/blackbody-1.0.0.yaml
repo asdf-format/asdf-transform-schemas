@@ -13,6 +13,7 @@ description: |
 examples:
   -
     - $$B_{\\nu}(T) = 10.0 \frac{2 h \nu^{3} / c^{2}}{exp(h \nu / k *6000) - 1}$$
+    - asdf-standard-1.5.0
     - |
       !transform/blackbody-1.0.0
         scale: 10.0

@@ -10,7 +10,7 @@ description: >
 examples:
   -
     - Multiply the input by a pixel scale factor.
-
+    - asdf-standard-1.5.0
     - |
         !transform/multiplyscale-1.0.0
           factor: !unit/quantity-1.1.0 {unit: !unit/unit-1.0.0 arcsec pixel-1,
