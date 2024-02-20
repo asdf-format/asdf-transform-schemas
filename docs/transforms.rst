@@ -44,6 +44,7 @@ The current ``transform`` schemas:
    fix_inputs-1.2.0
    gaussian1d-1.0.0
    gaussian2d-1.0.0
+   general_sersic2d-1.0.0
    gnomonic-1.2.0
    hammer_aitoff-1.2.0
    healpix-1.2.0

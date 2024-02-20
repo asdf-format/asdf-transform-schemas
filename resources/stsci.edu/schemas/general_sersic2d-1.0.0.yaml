@@ -1,0 +1,66 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/general_sersic2d-1.0.0"
+title: >
+  Two dimensional generalized Sersic surface brightness profile.
+
+description: >
+  Two dimensional Sersic surface brightness profile over a generalized ellipse.
+
+examples:
+  -
+    - $I(x, y) = I_{e} \exp\left\{-b_{n} \left[\left(\frac{r(x, y)}{r_{e}}\right)^{(1/n)}-1\right]\right\}$ where $I_e$ is the amplitude, $b_n$ is defined such that $r_e$ (r_eff) contains half the total luminosity (can be solved for numerically).
+    - asdf-standard-1.6.0
+    - |
+      !transform/general_sersic2d-1.0.0 {amplitude: 10.0, ellip: 0.0, n: 4.0, r_eff: 1.0, theta: 0.0, x_0: 0.5, y_0: 1.5, c: 0.0}
+  -
+    - Generalized Sersic profile with isophote shape parameter.
+    - asdf-standard-1.6.0
+    - |
+      !transform/general_sersic2d-1.0.0 {amplitude: 10.0, ellip: 0.0, n: 4.0, r_eff: 1.0, theta: 0.0, x_0: 0.5, y_0: 1.5, c: 0.5}
+
+allOf:
+  - $ref: "transform-1.3.0"
+  - type: object
+    properties:
+      amplitude:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: Surface brightness at r_eff.
+      r_eff:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: Effective (half-light) radius.
+      n:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: Sersic index.
+      x_0:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: x position of the center.
+      y_0:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: y position of the center.
+      ellip:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: Ellipticity.
+      theta:
+        anyOf:
+          - $ref: "../unit/quantity-1.2.0"
+          - type: number
+        description: Rotation angle in radians, increases counterclockwise from the positive x-axis.
+      c:
+        type: number
+        description: Isophote shape parameter generalizing the ellipse used.
+
+    required: ['amplitude', 'r_eff', 'n', 'x_0', 'y_0', 'ellip', 'theta', 'c']
