@@ -35,7 +35,7 @@ docs = [
 test = [
     'asdf >= 2.8.0',
     #'asdf-astropy',
-    'asdf-astropy @ git+https://github.com/braingram/asdf-astropy.git@split_core'
+    'asdf-astropy @ git+https://github.com/braingram/asdf-astropy.git@split_core',
     'scipy',
     'pytest',
 ]
