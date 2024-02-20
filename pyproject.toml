@@ -14,7 +14,8 @@ classifiers = [
     'Development Status :: 5 - Production/Stable',
 ]
 dependencies = [
-    'asdf-standard >= 1.0.1',
+    #'asdf-standard >= 1.0.1',
+    'asdf-standard @ git+https://github.com/braingram/asdf-standard.git@split_core'
     'importlib_resources >= 3; python_version<"3.9"',
 ]
 dynamic = ['version']
