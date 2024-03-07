@@ -1,9 +1,18 @@
+0.6.0 (unreleased)
+------------------
+
+-
+
+0.5.0 (2024-03-07)
+------------------
+
+- Update schemas for ASDF standard 1.6.0 [#110]
+
 0.4.0 (2023-10-18)
 ------------------
 
 - Move root-level $ref in schemas to an allOf combiner. [#87]
 - Fix URI fragment format in transform-1.2 schema. [#88]
-- Update schemas for ASDF standard 1.6.0 [#110]
 
 0.3.0 (2022-08-22)
 ------------------
