@@ -38,24 +38,24 @@ jobs:
             toxenv: py39
 
           - name: Twine check
-            python-version: 3.9
+            python-version: 3.11
             os: ubuntu-latest
             toxenv: twine
 
           - name: Code style checks
-            python-version: 3.9
+            python-version: 3.11
             os: ubuntu-latest
             toxenv: codestyle
 
           - name: macOS
-            python-version: 3.9
+            python-version: 3.11
             os: macos-latest
-            toxenv: py39
+            toxenv: py311
 
           - name: Windows
-            python-version: 3.9
+            python-version: 3.11
             os: windows-latest
-            toxenv: py39
+            toxenv: py311
 
     steps:
       - name: Checkout code
@@ -82,26 +82,18 @@ jobs:
         with:
           fetch-depth: 0
           path: asdf-transform-schemas
-      - name: Checkout astropy dev
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          repository: astropy/astropy
-          path: astropy
       - name: Checkout asdf-astropy dev
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           repository: astropy/asdf-astropy
           path: asdf-astropy
-      - name: Set up Python 3.9
+      - name: Set up Python 3.11
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.11
       - name: Install asdf-transform-schemas
         run: cd asdf-transform-schemas && pip install .
-      - name: Install astropy
-        run: cd astropy && pip install -e .[all,test]
       - name: Install asdf-astropy
         run: cd asdf-astropy && pip install -e .[test]
       - name: Pip Freeze
