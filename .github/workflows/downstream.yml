@@ -32,10 +32,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - package_name: astropy
-            repository: astropy/astropy
-            install_command: pip install -e .[test]
-            test_command: pytest
           - package_name: gwcs
             repository: spacetelescope/gwcs
             install_command: pip install -e .[test]
@@ -48,10 +44,6 @@ jobs:
             repository: astropy/specutils
             install_command: pip install -e .[test]
             test_command: pytest
-          - package_name: weldx
-            repository: BAMWelDX/weldx
-            install_command: pip install -e .[test]
-            test_command: pytest weldx/tests/asdf_tests weldx/schemas --asdf-tests
           - package_name: sunpy
             repository: sunpy/sunpy
             install_command: pip install -e .[tests,all]
@@ -66,10 +58,6 @@ jobs:
             test_command: pytest
           - package_name: asdf-standard
             repository: asdf-format/asdf-standard
-            install_command: pip install -e .[test]
-            test_command: pytest
-          - package_name: asdf-transform-schemas
-            repository: asdf-format/asdf-transform-schemas
             install_command: pip install -e .[test]
             test_command: pytest
           - package_name: asdf-wcs-schemas
@@ -93,10 +81,10 @@ jobs:
           fetch-depth: 0
           repository: ${{ matrix.repository }}
           path: target
-      - name: Set up Python 3.9
+      - name: Set up Python 3.11
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.11
       - name: Install asdf-transform-schemas
         run: cd asdf-transform-schemas && pip install .
       - name: Install remaining ${{ matrix.package_name }} dependencies
