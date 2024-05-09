@@ -44,10 +44,6 @@ jobs:
             repository: astropy/specutils
             install_command: pip install -e .[test]
             test_command: pytest
-          - package_name: weldx
-            repository: BAMWelDX/weldx
-            install_command: pip install -e .[test]
-            test_command: pytest weldx/tests/asdf_tests weldx/schemas --asdf-tests
           - package_name: sunpy
             repository: sunpy/sunpy
             install_command: pip install -e .[tests,all]
@@ -62,10 +58,6 @@ jobs:
             test_command: pytest
           - package_name: asdf-standard
             repository: asdf-format/asdf-standard
-            install_command: pip install -e .[test]
-            test_command: pytest
-          - package_name: asdf-transform-schemas
-            repository: asdf-format/asdf-transform-schemas
             install_command: pip install -e .[test]
             test_command: pytest
           - package_name: asdf-wcs-schemas
