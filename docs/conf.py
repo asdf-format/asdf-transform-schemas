@@ -132,7 +132,8 @@ html_theme_options = {
 }
 
 pygments_style = "monokai"
-
+# NB Dark style pygments is furo-specific at this time
+pygments_dark_style = "monokai"
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
 # html_last_updated_fmt = ''
