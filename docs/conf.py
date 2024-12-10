@@ -77,7 +77,7 @@ subprojects = {
     "asdf-wcs-schemas": ("https://www.asdf-format.org/projects/asdf-wcs-schemas/en/latest/", None),
 }
 
-intersphinx_mapping.update(subprojects) # noqa
+intersphinx_mapping.update(subprojects)  # noqa
 
 # To perform a Sphinx version check that needs to be more specific than
 # major.minor, call `check_sphinx_version("x.y.z")` here.
