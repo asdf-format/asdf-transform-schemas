@@ -162,7 +162,7 @@ graphviz_dot_args = [
 
 # # Grouping the document tree into LaTeX files. List of tuples
 # # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [("index", project + ".tex", "ASDF Transform Schemas Documentation", author, "manual")]
+latex_documents = [("index", project + ".tex", project + " Documentation", author, "manual")]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
