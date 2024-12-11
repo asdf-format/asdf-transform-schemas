@@ -2,6 +2,7 @@
 ------------------
 
 - Changes documentation configuration settings to make this consistent with other asdf-related projects [#117]
+- Fix typo in latex logo path [#118]
 
 0.5.0 (2024-03-08)
 ------------------
