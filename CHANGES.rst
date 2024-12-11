@@ -1,7 +1,7 @@
 0.6.0 (unreleased)
 ------------------
 
--
+- Changes documentation configuration settings to make this consistent with other asdf-related projects [#117]
 
 0.5.0 (2024-03-08)
 ------------------

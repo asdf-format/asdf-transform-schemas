@@ -29,7 +29,7 @@ docs = [
     'graphviz',
     'matplotlib',
     'docutils',
-    'sphinx-rtd-theme',
+    'furo',
 ]
 test = [
     'asdf >= 2.8.0',
@@ -40,7 +40,7 @@ test = [
 
 [project.urls]
 'tracker' = 'https://github.com/asdf-format/asdf-transform-schemas/issues'
-'documentation' = 'https://asdf-transform-schemas.readthedocs.io/en/stable'
+'documentation' = 'https://www.asdf-format.org/projects/asdf-transform-schemas/en/latest'
 'repository' = 'https://github.com/asdf-format/asdf-transform-schemas'
 
 [project.entry-points]
