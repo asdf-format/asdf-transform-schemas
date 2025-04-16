@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/cylindrical_perspective-1.4.0"
+id: "http://stsci.edu/schemas/asdf/transform/cylindrical_perspective-1.5.0"
 title: |
   The cylindrical perspective projection.
 
@@ -22,12 +22,12 @@ description: |
   this transform.
 
 allOf:
-  - $ref: "cylindrical-1.3.0"
+  - $ref: "cylindrical-1.4.0"
   - type: object
     properties:
       mu:
         anyOf:
-          - $ref: "../unit/quantity-1.2.0"
+          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - type: number
         description: |
           Distance from center of sphere in the direction opposite the
@@ -36,7 +36,7 @@ allOf:
 
       lambda:
         anyOf:
-          - $ref: "../unit/quantity-1.2.0"
+          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - type: number
         description: |
           Radius of the cylinder in spherical radii, default is 1.
