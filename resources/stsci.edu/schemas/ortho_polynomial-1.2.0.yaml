@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/ortho_polynomial-1.1.0"
+id: "http://stsci.edu/schemas/asdf/transform/ortho_polynomial-1.2.0"
 title: >
   Respresents various Orthogonal Polynomial models.
 
@@ -21,7 +21,7 @@ examples:
     - $P = 1.2 + 0.3 * x + 56.1 * x^{2}$
     - asdf-standard-1.6.0
     - |
-        !transform/ortho_polynomial-1.1.0
+        !transform/ortho_polynomial-1.2.0
           polynomial_type: hermite
           coefficients: !core/ndarray-1.1.0
                           [1.2, 0.3, 56.1]
@@ -29,7 +29,7 @@ examples:
     - $P = 1.2 + 0.3 * x + 3 * x * y + 2.1 * y^{2}$
     - asdf-standard-1.6.0
     - |
-        !transform/ortho_polynomial-1.1.0
+        !transform/ortho_polynomial-1.2.0
           polynomial_type: chebyshev
           coefficients: !core/ndarray-1.1.0
                           [[1.2, 0.0, 2.1],
@@ -37,7 +37,7 @@ examples:
                            [0.0, 0.0, 0.0]]
 
 allOf:
-  - $ref: "transform-1.3.0"
+  - $ref: "transform-1.4.0"
   - type: object
     properties:
       polynomial_type:
@@ -49,7 +49,7 @@ allOf:
         description: |
           An array with coefficients.
         anyOf:
-          - $ref: "../core/ndarray-1.1.0"
+          - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
           - type: array
     required: [polynomial_type, coefficients]
 ...
