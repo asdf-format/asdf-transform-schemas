@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/label_mapper-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/label_mapper-1.4.0"
 title: >
   Represents a mapping from a coordinate value to a label.
 description: |
@@ -19,7 +19,7 @@ examples:
     - Map array indices are to labels.
     - asdf-standard-1.6.0
     - |
-        !transform/label_mapper-1.3.0
+        !transform/label_mapper-1.4.0
           mapper: !core/ndarray-1.1.0
             [[1, 0, 2],
             [1, 0, 2],
@@ -29,7 +29,7 @@ examples:
     - Map numbers dictionary to transforms which return labels.
     - asdf-standard-1.6.0
     - |
-        !transform/label_mapper-1.3.0
+        !transform/label_mapper-1.4.0
           mapper: !!omap
           - !!omap
             labels: [-1.67833272, -1.9580548, -1.118888]
@@ -59,7 +59,7 @@ examples:
     - Map a number within a range of numbers to transforms which return labels.
     - asdf-standard-1.6.0
     - |
-        !transform/label_mapper-1.3.0
+        !transform/label_mapper-1.4.0
           mapper: !!omap
           - !!omap
             labels:
@@ -89,7 +89,7 @@ examples:
             n_inputs: 2
 
 allOf:
-  - $ref: "transform-1.3.0"
+  - $ref: "transform-1.4.0"
   - type: object
     properties:
       mapper:
@@ -104,8 +104,8 @@ allOf:
           It could be a dictionary which maps tuples to labels or floating point numbers to labels.
 
         anyOf:
-          - $ref: "../core/ndarray-1.1.0"
-          - $ref: "transform-1.3.0"
+          - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
+          - $ref: "transform-1.4.0"
           - type: object
             properties:
               labels:
@@ -121,7 +121,7 @@ allOf:
               models:
                 type: array
                 items:
-                  $ref: "transform-1.3.0"
+                  $ref: "transform-1.4.0"
 
       inputs:
         type: array
@@ -130,7 +130,7 @@ allOf:
         description: |
           Names of inputs.
       inputs_mapping:
-        $ref: "transform-1.3.0"
+        $ref: "transform-1.4.0"
         description: |
           [mapping](ref:schemas/remap_axes-1.4.0)
       atol:
