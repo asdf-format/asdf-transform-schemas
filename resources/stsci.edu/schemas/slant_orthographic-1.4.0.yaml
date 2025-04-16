@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/slant_orthographic-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/slant_orthographic-1.4.0"
 title: |
   The slant orthographic projection.
 
@@ -24,12 +24,12 @@ description: |
   this transform.
 
 allOf:
-  - $ref: "zenithal-1.3.0"
+  - $ref: "zenithal-1.4.0"
   - type: object
     properties:
       xi:
         anyOf:
-          - $ref: "../unit/quantity-1.2.0"
+          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - type: number
         description: Obliqueness parameter, first equation of the slant
                      orthographic projection.
@@ -37,7 +37,7 @@ allOf:
 
       eta:
         anyOf:
-          - $ref: "../unit/quantity-1.2.0"
+          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - type: number
         description: Obliqueness parameter, second equation of the slant
                      orthographic projection.
