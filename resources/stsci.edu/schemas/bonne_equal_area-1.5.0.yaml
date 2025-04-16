@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/bonne_equal_area-1.4.0"
+id: "http://stsci.edu/schemas/asdf/transform/bonne_equal_area-1.5.0"
 title: |
   Bonne's equal area pseudoconic projection.
 
@@ -33,12 +33,12 @@ description: |
   this transform.
 
 allOf:
-  - $ref: "pseudoconic-1.3.0"
+  - $ref: "pseudoconic-1.4.0"
   - type: object
     properties:
       theta1:
         anyOf:
-          - $ref: "../unit/quantity-1.2.0"
+          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - type: number
         description: |
           Bonne conformal latitude, in degrees.
