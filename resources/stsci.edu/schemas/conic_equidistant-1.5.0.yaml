@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/conic_equidistant-1.4.0"
+id: "http://stsci.edu/schemas/asdf/transform/conic_equidistant-1.5.0"
 title: |
   Conic equidistant projection.
 
@@ -22,5 +22,5 @@ description: |
   this transform.
 
 allOf:
-  - $ref: "conic-1.4.0"
+  - $ref: "conic-1.5.0"
 ...
