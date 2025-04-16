@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/zenithal_equal_area-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/zenithal_equal_area-1.4.0"
 title: |
   The zenithal equal area projection.
 
@@ -25,5 +25,5 @@ description: |
   this transform.
 
 allOf:
-  - $ref: "zenithal-1.3.0"
+  - $ref: "zenithal-1.4.0"
 ...
