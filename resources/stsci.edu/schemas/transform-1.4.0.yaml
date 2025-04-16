@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/transform-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/transform-1.4.0"
 title: >
   A generic type used to mark where other transforms are accepted.
 
@@ -14,7 +14,7 @@ examples:
     - A transform with no bounding_box or compound_bounding_box
     - asdf-standard-1.6.0
     - |
-      !transform/transform-1.3.0
+      !transform/transform-1.4.0
         name: test
         inputs: ['x', 'y']
         outputs: ['z']
@@ -28,7 +28,7 @@ examples:
     - A transform with old-style 1D bounding_box
     - asdf-standard-1.6.0
     - |
-      !transform/transform-1.3.0
+      !transform/transform-1.4.0
         name: test
         inputs: ['x']
         outputs: ['y']
@@ -50,7 +50,7 @@ examples:
     - A transform with old-style 2D bounding_box
     - asdf-standard-1.6.0
     - |
-      !transform/transform-1.3.0
+      !transform/transform-1.4.0
         name: test
         inputs: ['x', 'y']
         outputs: ['z']
@@ -115,6 +115,19 @@ definitions:
       - type: number
       - type: "null"
 
+  quantity_bound:
+    anyOf:
+      - tag: tag:stsci.edu:asdf/unit/quantity-1.*
+      - type: number
+
+  interval:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      - $ref: "#/definitions/quantity_bound"
+      - $ref: "#/definitions/quantity_bound"
+
 type: object
 properties:
   name:
@@ -131,7 +144,7 @@ properties:
       property is usually not necessary, as the ASDF-reading tool
       can provide it automatically.
 
-    $ref: "transform-1.3.0"
+    $ref: "#"
 
   inputs:
     description: |
@@ -152,11 +165,11 @@ properties:
       Bounding box for model the transform
 
     oneOf:
-      - $ref: "property/bounding_box-1.1.0#/definitions/interval"
+      - $ref: "#/definitions/interval"
       - type: array
         minItems: 2
         items:
-          $ref: "property/bounding_box-1.1.0#/definitions/interval"
+          $ref: "#/definitions/interval"
       - tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.1.0
       - tag: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.1.0
 
