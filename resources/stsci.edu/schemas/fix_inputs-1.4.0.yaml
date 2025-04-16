@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/fix_inputs-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/fix_inputs-1.4.0"
 title: >
   Set to a constant selected input arguments of a model.
 
@@ -20,7 +20,7 @@ examples:
     - Fix the 0-th coordinate.
     - asdf-standard-1.6.0
     - |
-      !transform/fix_inputs-1.3.0
+      !transform/fix_inputs-1.4.0
         forward:
         - !transform/compose-1.3.0
             forward:
@@ -32,7 +32,7 @@ examples:
     - Fix the "x" coordinate.
     - asdf-standard-1.6.0
     - |
-      !transform/fix_inputs-1.3.0
+      !transform/fix_inputs-1.4.0
         forward:
         - !transform/compose-1.3.0
             forward:
@@ -42,12 +42,12 @@ examples:
           values: [2]
 
 allOf:
-  - $ref: "transform-1.3.0"
+  - $ref: "transform-1.4.0"
   - properties:
       forward:
         type: array
         items:
-          - $ref: "transform-1.3.0"
+          - $ref: "transform-1.4.0"
           - type: object
             properties:
               keys:
