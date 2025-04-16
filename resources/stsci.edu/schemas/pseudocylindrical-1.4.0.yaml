@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
-id: "http://stsci.edu/schemas/asdf/transform/pseudocylindrical-1.3.0"
+id: "http://stsci.edu/schemas/asdf/transform/pseudocylindrical-1.4.0"
 title: |
   Base class of all pseudocylindrical projections.
 
@@ -12,7 +12,7 @@ description: |
   distortion there.  Consequently, the meridians are curved.
 
 allOf:
-  - $ref: "transform-1.3.0"
+  - $ref: "transform-1.4.0"
   - type: object
     properties:
       direction:
