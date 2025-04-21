@@ -170,8 +170,8 @@ properties:
         minItems: 2
         items:
           $ref: "#/definitions/interval"
-      - tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.1.0
-      - tag: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.1.0
+      - tag: tag:stsci.edu:asdf/transform/property/bounding_box-1.*
+      - tag: tag:stsci.edu:asdf/transform/property/compound_bounding_box-1.*
 
   fixed:
     description: |
