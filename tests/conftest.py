@@ -3,12 +3,21 @@ from pathlib import Path
 import pytest
 import yaml
 
+import asdf
+
 
 def get_latest_schema_uris(resource_paths):
     by_base_uri = {}
+
     for resource_path in resource_paths:
         # skip manifests
         if "manifests" in resource_path.parts:
+            continue
+
+        # skip deprecated label_mapper and regions_selector
+        if "label_mapper" in resource_path.parts[-1]:
+            continue
+        if "regions_selector" in resource_path.parts[-1]:
             continue
 
         # get uri from schema id
@@ -52,3 +61,13 @@ def latest_manifest(latest_manifest_path):
 @pytest.fixture
 def latest_schema_uris():
     yield LATEST_SCHEMA_URIS
+
+
+@pytest.fixture(params=LATEST_SCHEMA_URIS)
+def latest_schema_uri(request):
+    yield request.param
+
+
+@pytest.fixture()
+def latest_schema(latest_schema_uri):
+    yield asdf.schema.load_schema(latest_schema_uri)
