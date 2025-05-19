@@ -1,22 +1,9 @@
-from pathlib import Path
-
 import asdf
 import pytest
 import yaml
 
 
-def get_resources():
-    resources_root = Path(__file__).parent.parent / "resources"
-
-    return {str(path.relative_to(resources_root)): path for path in resources_root.glob("**/*.yaml")}
-
-
-RESOURCES = get_resources()
-
-
-@pytest.mark.parametrize("resource", RESOURCES)
-def test_resource(resource):
-    resource_path = RESOURCES[resource]
+def test_resource_id(resource_path):
     resource_manager = asdf.get_config().resource_manager
 
     with resource_path.open("rb") as f:
@@ -26,18 +13,7 @@ def test_resource(resource):
     assert resource_manager[resource_uri] == resource_content
 
 
-def get_manifests():
-    manifests_root = Path(__file__).parent.parent / "resources" / "asdf-format.org" / "manifests"
-
-    return {str(path.relative_to(manifests_root)): path for path in manifests_root.glob("*.yaml")}
-
-
-MANIFESTS = get_manifests()
-
-
-@pytest.mark.parametrize("manifest", MANIFESTS)
-def test_manifest(manifest):
-    manifest_path = MANIFESTS[manifest]
+def test_manifest(manifest_path):
     resource_manager = asdf.get_config().resource_manager
 
     with manifest_path.open("rb") as f:
@@ -52,3 +28,5 @@ def test_manifest(manifest):
     for tag_definition in manifest["tags"]:
         # The tag's schema must be available:
         assert tag_definition["schema_uri"] in resource_manager
+
+    assert manifest["id"].endswith(manifest_path.stem)
