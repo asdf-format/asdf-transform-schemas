@@ -139,7 +139,7 @@ html_logo = ""
 html_theme_options = {
     "light_logo": "images/logo-light-mode.png",
     "dark_logo": "images/logo-dark-mode.png",
-    "announcement": topbanner, 
+    "announcement": topbanner,
 }
 
 
@@ -197,6 +197,7 @@ extensions += ["sphinx_asdf", "sphinx.ext.intersphinx", "sphinx.ext.extlinks"]  
 asdf_schema_path = "../resources/stsci.edu"
 # This is the prefix common to all schema IDs in this repository
 asdf_schema_standard_prefix = "schemas"
+
 
 def setup(app):
     app.add_css_file("custom.css")

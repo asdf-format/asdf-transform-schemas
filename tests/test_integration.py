@@ -1,5 +1,4 @@
 import asdf
-import pytest
 import yaml
 
 

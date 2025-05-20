@@ -2,8 +2,6 @@ import re
 
 import asdf
 
-import pytest
-
 ALLOWED_REFS = (
     r"^transform-[0-9.]+$",
     r"^conic-[0-9.]+$",
@@ -66,7 +64,9 @@ def test_quantity_tag(latest_schema):
                 # tags not in anyof
                 return {k: v for k, v in node.items() if k != "anyOf"}
         if tag := node.get("tag"):
-            assert tag not in QUANTITY_TAGS, f"quantity tag {tag} must be in an anyOf with all quantity tags: {QUANTITY_TAGS}"
+            assert (
+                tag not in QUANTITY_TAGS
+            ), f"quantity tag {tag} must be in an anyOf with all quantity tags: {QUANTITY_TAGS}"
         return node
 
     asdf.treeutil.walk_and_modify(latest_schema, callback, postorder=False)
