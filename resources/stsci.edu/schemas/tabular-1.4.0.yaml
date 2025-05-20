@@ -21,6 +21,7 @@ allOf:
           - type: array
           - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
       points:
         type: array
         items:
@@ -28,6 +29,7 @@ allOf:
             - type: array
             - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
             - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+            - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
         description: |
           Grid values - each row in the array corresponds to a dimension
           in the lookup table. The grid does not have to be regular.

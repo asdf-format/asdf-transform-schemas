@@ -39,6 +39,7 @@ allOf:
       mu:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: |
           Distance from point of projection to center of sphere in
@@ -48,6 +49,7 @@ allOf:
       gamma:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: |
           Look angle, in degrees.
