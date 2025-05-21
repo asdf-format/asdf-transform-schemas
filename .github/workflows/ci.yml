@@ -18,8 +18,14 @@ jobs:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
+          - name: Python 3.13 Schema validation tests
+            python-version: '3.13'
+            os: ubuntu-latest
+            toxenv: py313
+
           - name: Python 3.12 Schema validation tests
             python-version: '3.12'
             os: ubuntu-latest
@@ -28,7 +34,7 @@ jobs:
           - name: Python 3.11 Schema validation tests
             python-version: '3.11'
             os: ubuntu-latest
-            toxenv: py310
+            toxenv: py311
 
           - name: Python 3.10 Schema validation tests
             python-version: '3.10'
@@ -51,22 +57,22 @@ jobs:
             toxenv: codestyle
 
           - name: macOS
-            python-version: 3.11
+            python-version: 3.13
             os: macos-latest
-            toxenv: py311
+            toxenv: py312
 
           - name: Windows
-            python-version: 3.11
+            python-version: 3.13
             os: windows-latest
-            toxenv: py311
+            toxenv: py313
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install tox
@@ -81,20 +87,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout asdf-transform-schemas
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           path: asdf-transform-schemas
       - name: Checkout asdf-astropy dev
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           repository: astropy/asdf-astropy
           path: asdf-astropy
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: 3.13
       - name: Install asdf-transform-schemas
         run: cd asdf-transform-schemas && pip install .
       - name: Install asdf-astropy

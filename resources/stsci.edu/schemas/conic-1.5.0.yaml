@@ -34,6 +34,7 @@ allOf:
       sigma:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: |
           $(\theta_1 + \theta_2) / 2$ where $\theta_1$ and $\theta_2$
@@ -43,6 +44,7 @@ allOf:
       delta:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: |
           $(\theta_1 - \theta_2) / 2$ where $\theta_1$ and $\theta_2$

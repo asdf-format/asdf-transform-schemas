@@ -14,6 +14,7 @@ allOf:
       value:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
       dimensions:
         type: integer

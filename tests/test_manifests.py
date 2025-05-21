@@ -1,6 +1,3 @@
-import pytest
-
-
 def test_manifest_tag_order(latest_manifest):
     """Tags should be sorted alphabetically"""
     tag_uris = [tag_def["tag_uri"] for tag_def in latest_manifest["tags"]]

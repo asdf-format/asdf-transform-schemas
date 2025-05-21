@@ -2,8 +2,6 @@ import re
 
 import asdf
 
-import pytest
-
 ALLOWED_REFS = (
     r"^transform-[0-9.]+$",
     r"^conic-[0-9.]+$",
@@ -14,6 +12,10 @@ ALLOWED_REFS = (
     r"^zenithal-[0-9.]+$",
     r"^#.*$",
 )
+
+ASDF_QUANTITY_TAG = "tag:stsci.edu:asdf/unit/quantity-1.*"
+ASTROPY_QUANTITY_TAG = "tag:astropy.org:astropy/units/quantity-1.*"
+QUANTITY_TAGS = {ASDF_QUANTITY_TAG, ASTROPY_QUANTITY_TAG}
 
 
 def test_only_known_refs(latest_schema):
@@ -36,3 +38,35 @@ def test_wildcard_tags(latest_schema):
             pattern = node["tag"]
             if "*" not in pattern:
                 assert False, f"tag pattern missing wildcard: {pattern}"
+
+
+def test_quantity_tag(latest_schema):
+    # we walk_and_modify here to use postorder
+
+    def callback(node):
+        if not isinstance(node, dict):
+            return node
+        if "anyOf" in node:
+            # check if this anyof includes tag: quantity
+            seen = set()
+            for sub in node["anyOf"]:
+                if not isinstance(sub, dict):
+                    continue
+                if "tag" not in sub:
+                    continue
+                if sub["tag"] in QUANTITY_TAGS:
+                    seen.add(sub["tag"])
+
+            if seen:
+                # if a tag: quantity was found, check both were found
+                assert seen == QUANTITY_TAGS, f"anyOf {node} missing: {QUANTITY_TAGS - seen}"
+                # remove the anyof so the code below can check for quantity
+                # tags not in anyof
+                return {k: v for k, v in node.items() if k != "anyOf"}
+        if tag := node.get("tag"):
+            assert (
+                tag not in QUANTITY_TAGS
+            ), f"quantity tag {tag} must be in an anyOf with all quantity tags: {QUANTITY_TAGS}"
+        return node
+
+    asdf.treeutil.walk_and_modify(latest_schema, callback, postorder=False)

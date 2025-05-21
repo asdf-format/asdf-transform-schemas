@@ -31,31 +31,37 @@ allOf:
       amplitude:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Value of the ellipse.
       x_0:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: x position of the center of the ellipse.
       y_0:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: y position of the center of the ellipse.
       a:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: The length of the semimajor axis.
       b:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: The length of the seminor axis.
       theta:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: The rotation angle in radians of the semimajor axis. The rotation angle increase counterclockwise from the positive x axis.
 

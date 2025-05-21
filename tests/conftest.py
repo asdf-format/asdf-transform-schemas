@@ -1,9 +1,8 @@
 from pathlib import Path
 
+import asdf
 import pytest
 import yaml
-
-import asdf
 
 
 def get_latest_schema_uris(resource_paths):

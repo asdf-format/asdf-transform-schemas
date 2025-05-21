@@ -20,7 +20,7 @@ examples:
     - A 1D bounding box
     - asdf-standard-1.6.0
     - |
-      !transform/constant-1.5.0
+      !transform/constant-1.6.0
         value: 1
         dimensions: 1
         bounding_box: !transform/property/bounding_box-1.2.0
@@ -30,7 +30,7 @@ examples:
     - A 2D bounding box
     - asdf-standard-1.6.0
     - |
-      !transform/constant-1.5.0
+      !transform/constant-1.6.0
         value: 1
         dimensions: 2
         bounding_box: !transform/property/bounding_box-1.2.0
@@ -42,15 +42,15 @@ examples:
     - A 3D bounding box
     - asdf-standard-1.6.0
     - |
-      !transform/concatenate-1.3.0
+      !transform/concatenate-1.4.0
         forward:
-          - !transform/concatenate-1.3.0
+          - !transform/concatenate-1.4.0
             forward:
-              - !transform/shift-1.3.0
+              - !transform/shift-1.4.0
                 offset: 1.0
-              - !transform/shift-1.3.0
+              - !transform/shift-1.4.0
                 offset: 2.0
-          - !transform/shift-1.3.0
+          - !transform/shift-1.4.0
             offset: 3.0
         bounding_box: !transform/property/bounding_box-1.2.0
           intervals:
@@ -62,15 +62,15 @@ examples:
     - A 3D bounding box with ignored inputs
     - asdf-standard-1.6.0
     - |
-      !transform/concatenate-1.3.0
+      !transform/concatenate-1.4.0
         forward:
-          - !transform/concatenate-1.3.0
+          - !transform/concatenate-1.4.0
             forward:
-              - !transform/shift-1.3.0
+              - !transform/shift-1.4.0
                 offset: 1.0
-              - !transform/shift-1.3.0
+              - !transform/shift-1.4.0
                 offset: 2.0
-          - !transform/shift-1.3.0
+          - !transform/shift-1.4.0
             offset: 3.0
         bounding_box: !transform/property/bounding_box-1.2.0
           intervals:
@@ -81,7 +81,8 @@ examples:
 definitions:
   bound:
     anyOf:
-      - tag: tag:stsci.edu:asdf/unit/quantity-1.*
+      - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+      - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
       - type: number
 
   interval:

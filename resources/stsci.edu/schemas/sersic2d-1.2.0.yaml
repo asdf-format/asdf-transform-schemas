@@ -22,36 +22,43 @@ allOf:
       amplitude:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Surface brightness at r_eff.
       r_eff:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Effective (half-light) radius.
       n:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Sersic index.
       x_0:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: x position of the center.
       y_0:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: y position of the center.
       ellip:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Ellipticity.
       theta:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Rotation angle in radians, increases counterclockwise from the positive x-axis.
 

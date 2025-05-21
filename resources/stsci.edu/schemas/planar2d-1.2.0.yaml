@@ -22,16 +22,19 @@ allOf:
       slope_x:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Slope of the stright line in x.
       slope_y:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Slope of the straight lie in y.
       intercept:
         anyOf:
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: z-intercept of the straight line.
 

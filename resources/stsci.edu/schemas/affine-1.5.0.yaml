@@ -20,6 +20,7 @@ allOf:
         anyOf:
           - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: array
             items:
               type: array
@@ -36,6 +37,7 @@ allOf:
         anyOf:
           - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
           - tag: "tag:astropy.org:astropy/units/quantity-1.*"
+          - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: array
             items:
               type: number
