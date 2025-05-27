@@ -1,4 +1,4 @@
-0.6.0 (unreleased)
+0.6.0 (2025-05-27)
 ------------------
 
 - Changes documentation configuration settings to make this consistent with other asdf-related projects [#117]
