@@ -21,19 +21,16 @@ allOf:
     properties:
       amplitude:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Model amplitude at the reference point.
       x_0:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Reference point.
       alpha:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Power law index.

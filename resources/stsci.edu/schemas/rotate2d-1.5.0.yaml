@@ -15,7 +15,6 @@ allOf:
     properties:
       angle:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Angle, in degrees.
