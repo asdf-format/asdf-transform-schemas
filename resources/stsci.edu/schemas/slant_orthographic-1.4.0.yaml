@@ -29,7 +29,6 @@ allOf:
     properties:
       xi:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Obliqueness parameter, first equation of the slant
@@ -38,7 +37,6 @@ allOf:
 
       eta:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Obliqueness parameter, second equation of the slant

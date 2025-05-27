@@ -28,31 +28,26 @@ allOf:
     properties:
       amplitude:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Amplitude.
       x_0:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: x position of the center of the box model.
       x_width:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: x width of box.
       y_0:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: y position of the center of the box model.
       y_width:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: y width of box.

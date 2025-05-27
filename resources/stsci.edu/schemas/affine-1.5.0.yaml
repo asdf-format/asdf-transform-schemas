@@ -19,7 +19,6 @@ allOf:
           representing the linear transformation in an affine transform.
         anyOf:
           - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: array
             items:
@@ -36,7 +35,6 @@ allOf:
           representing the translation in an affine transform.
         anyOf:
           - tag: "tag:stsci.edu:asdf/core/ndarray-1.*"
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: array
             items:

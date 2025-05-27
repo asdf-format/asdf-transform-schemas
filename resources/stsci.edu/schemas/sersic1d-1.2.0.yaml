@@ -21,19 +21,16 @@ allOf:
     properties:
       amplitude:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Surface brightness at r_eff.
       r_eff:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Effective (half-light) radius.
       n:
         anyOf:
-          - tag: "tag:astropy.org:astropy/units/quantity-1.*"
           - tag: "tag:stsci.edu:asdf/unit/quantity-1.*"
           - type: number
         description: Sersic index.
