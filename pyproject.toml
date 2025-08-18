@@ -32,6 +32,7 @@ test = [
     'asdf-astropy',
     'scipy',
     'pytest',
+    'pytest-asdf-plugin',
 ]
 
 [project.urls]
