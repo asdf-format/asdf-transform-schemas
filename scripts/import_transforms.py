@@ -3,6 +3,7 @@ Script that imports transform schemas from asdf-standard.
 This file can be removed once the format of the new schemas
 is finalized.
 """
+
 import argparse
 import glob
 import os
