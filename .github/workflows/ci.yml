@@ -68,7 +68,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up Python ${{ matrix.python-version }}
@@ -87,12 +87,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout asdf-transform-schemas
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           path: asdf-transform-schemas
       - name: Checkout asdf-astropy dev
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           repository: astropy/asdf-astropy
