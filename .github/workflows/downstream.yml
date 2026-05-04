@@ -17,12 +17,6 @@ on:
     tags:
       - '*'
 
-env:
-  CRDS_SERVER_URL: https://jwst-crds.stsci.edu
-  CRDS_PATH: ~/crds_cache
-  CRDS_CLIENT_RETRY_COUNT: 3
-  CRDS_CLIENT_RETRY_DELAY_SECONDS: 20
-
 jobs:
   common:
     name: ${{ matrix.package_name }} unit tests
@@ -36,8 +30,12 @@ jobs:
             repository: spacetelescope/gwcs
             install_command: pip install -e .[test]
             test_command: pytest
-          - package_name: jwst
-            repository: spacetelescope/jwst
+          - package_name: stdatamodels
+            repository: spacetelescope/stdatamodels
+            install_command: pip install -e .[test]
+            test_command: pytest --no-crds
+          - package_name: roman_datamodels
+            repository: spacetelescope/roman_datamodels
             install_command: pip install -e .[test]
             test_command: pytest
           - package_name: specutils
