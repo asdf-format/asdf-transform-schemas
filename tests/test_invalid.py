@@ -318,5 +318,6 @@ purposefully_failing = [
 @pytest.mark.parametrize("yaml", purposefully_failing)
 def test_failing_schema(yaml):
     buff = helpers.yaml_to_asdf(f"example: {yaml.strip()}")
-    with pytest.raises(asdf.ValidationError, match=r"Failed validating *"):
+    with pytest.raises(asdf.ValidationError, match=r"Failed validating *"), asdf.config_context() as cfg:
+        cfg.validate_on_read = True
         asdf.open(buff)
