@@ -73,6 +73,9 @@ testpaths = """
     resources
 """
 addopts = '--color=yes'
+filterwarnings = [
+  "error"
+]
 
 [tool.black]
 line-length = 120
